@@ -7,5 +7,6 @@
 */
 
 // MARK: - ContentView
-"contentView.questionsTab" = "Questions";
+"contentView.playTab" = "Play";
 "contentView.favoritesTab" = "Favorites";
+"questionView.title" = "Trivia App";

@@ -5,7 +5,7 @@
 //  Created by user242582 on 13/11/23.
 //
 
-struct CharacterResponse: Codable {
+struct APIResponse<T: Codable>: Codable {
     let responseCode: Int
     let results: [Question]
 

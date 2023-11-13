@@ -7,7 +7,7 @@
 
 import Foundation
 
-class URLSessionNetworkClient: NetworkClient {
+struct URLSessionNetworkClient: NetworkClient {
     func get<T: Decodable>(url: String) async throws -> T {
         guard let url = URL(string: url) else {
             throw NetworkClientError.badUrl

@@ -5,27 +5,39 @@
 //  Created by user242582 on 13/11/23.
 //
 
-struct Question: Codable {
+import Foundation
+
+struct Question: Codable, Identifiable {
+    var id = UUID()
     let category: String
-    let type: TypeEnum
-    let difficulty: Difficulty
+    let type: String
+    let difficulty: String
     let question, correctAnswer: String
     let incorrectAnswers: [String]
+    
+    var answers: [String] {
+        var allAnswers = incorrectAnswers
+        allAnswers.append(correctAnswer)
+        return allAnswers.shuffled()
+    }
 
     enum CodingKeys: String, CodingKey {
         case category, type, difficulty, question
         case correctAnswer = "correct_answer"
         case incorrectAnswers = "incorrect_answers"
     }
-}
-
-enum Difficulty: String, Codable {
-    case easy = "easy"
-    case hard = "hard"
-    case medium = "medium"
-}
-
-enum TypeEnum: String, Codable {
-    case boolean = "boolean"
-    case multiple = "multiple"
+    
+    static var example: Question {
+        .init(
+            category: "Science: Mathematics",
+            type: "multiple",
+            difficulty: "medium",
+            question: "What is the first Mersenne prime exponent over 1000?",
+            correctAnswer: "1279",
+            incorrectAnswers: [
+                "2203",
+                "1009",
+                "1069"
+           ])
+    }
 }

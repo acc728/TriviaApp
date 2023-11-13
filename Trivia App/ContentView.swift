@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var coordinator: Coordinator
+    
     var body: some View {
         TabView {
-            Text("Questions")
+            coordinator.makeQuestionView()
                 .tabItem {
-                    Label("contentView.questionsTab".localized(), systemImage: "checkmark.circle.badge.questionmark.fill")
+                    Label("contentView.playTab".localized(), systemImage: "checkmark.circle.badge.questionmark.fill")
                 }
             
             Text("Favorites")
@@ -22,11 +24,14 @@ struct ContentView: View {
         }
         /*.fullScreenCover(isPresented: $showOnboarding) {
          OnboardingTabView()
-         }*/ // LANDING PAGE
+         }*/ 
+        
+        // LANDING PAGE
     }
 }
 
 
 #Preview {
     ContentView()
+        .environmentObject(Coordinator(mock: true))
 }
