@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            coordinator.makeQuestionView()
+            coordinator.makeQuizView()
                 .tabItem {
                     Label("contentView.playTab".localized(), systemImage: "checkmark.circle.badge.questionmark.fill")
                 }

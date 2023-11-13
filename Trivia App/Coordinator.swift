@@ -17,13 +17,23 @@ class Coordinator: ObservableObject {
         questionsRepository = QuestionsRepository(remoteService: questionsRemoteService)
     }
     
-    // MARK: - EpisodesView
+    // MARK: - QuestionView
     func makeQuestionView() -> QuestionView {
         QuestionView(viewModel: makeQuestionViewModel())
     }
     
-    // MARK: - EpisodesView
+    // MARK: - QuestionViewViewModel
     func makeQuestionViewModel() -> QuestionViewViewModel {
+        .init(questionRepository: questionsRepository)
+    }
+    
+    // MARK: - QuizView
+    func makeQuizView() -> QuizView {
+        QuizView(viewModel: makeQuizViewModel())
+    }
+    
+    // MARK: - QuizViewViewModel
+    func makeQuizViewModel() -> QuizViewViewModel {
         .init(questionRepository: questionsRepository)
     }
     

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct QuestionView: View {
     @StateObject private var viewModel: QuestionViewViewModel
+    //var question : Question
     @EnvironmentObject var coordinator: Coordinator
     
     init(viewModel: QuestionViewViewModel) {
@@ -18,7 +19,7 @@ struct QuestionView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                HStack {
+               /*HStack {
                     Text("questionView.title".localized())
                         .font(.title)
                         .fontWeight(.heavy)
@@ -29,7 +30,7 @@ struct QuestionView: View {
                 }
                 
                 ProgressBar(progress: 0.7)
-                    .padding(.bottom)
+                    .padding(.bottom)*/
                 
                 VStack(alignment: .center, spacing: 20) {
                     Text(viewModel.question.formattedQuestion)
@@ -40,6 +41,7 @@ struct QuestionView: View {
                         RowAnswer(answer: Answer(text: answer.text, isCorrect: answer.isCorrect))
                     }
                 }
+                
                 NavigationLink {
                     coordinator.makeQuestionView()
                 } label: {
@@ -60,5 +62,6 @@ struct QuestionView: View {
 
 #Preview {
     let coordinator = Coordinator(mock: true)
-    return coordinator.makeQuestionView().environmentObject(coordinator)
+    return coordinator.makeQuestionView()
+        .environmentObject(coordinator)
 }

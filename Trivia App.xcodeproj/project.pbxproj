@@ -29,6 +29,8 @@
 		7AF17CDF2B0281EA00761E37 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF17CDE2B0281EA00761E37 /* Answer.swift */; };
 		7AF17CE12B02825F00761E37 /* RowAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF17CE02B02825F00761E37 /* RowAnswer.swift */; };
 		7AF17CE32B0286E600761E37 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF17CE22B0286E600761E37 /* MainButton.swift */; };
+		7AF17CE72B0298D100761E37 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF17CE62B0298D100761E37 /* QuizView.swift */; };
+		7AF17CE92B02994400761E37 /* QuizViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF17CE82B02994400761E37 /* QuizViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		7AF17CDE2B0281EA00761E37 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		7AF17CE02B02825F00761E37 /* RowAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowAnswer.swift; sourceTree = "<group>"; };
 		7AF17CE22B0286E600761E37 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		7AF17CE62B0298D100761E37 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		7AF17CE82B02994400761E37 /* QuizViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +258,8 @@
 		7AF17CE52B0291B000761E37 /* QuizView */ = {
 			isa = PBXGroup;
 			children = (
+				7AF17CE62B0298D100761E37 /* QuizView.swift */,
+				7AF17CE82B02994400761E37 /* QuizViewViewModel.swift */,
 			);
 			path = QuizView;
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 				7ABE2DB62B020BDC00279C51 /* ContentView.swift in Sources */,
 				7ABE2DB42B020BDC00279C51 /* Trivia_AppApp.swift in Sources */,
 				7ABE2DC52B020DE100279C51 /* NetworkClientError.swift in Sources */,
+				7AF17CE92B02994400761E37 /* QuizViewViewModel.swift in Sources */,
 				7AF17CDD2B027F7C00761E37 /* ProgressBar.swift in Sources */,
 				7AF17CDF2B0281EA00761E37 /* Answer.swift in Sources */,
 				7ABE2DC32B020DC900279C51 /* NetworkClient.swift in Sources */,
@@ -347,6 +354,7 @@
 				7AF17CE32B0286E600761E37 /* MainButton.swift in Sources */,
 				7AF17CE12B02825F00761E37 /* RowAnswer.swift in Sources */,
 				7AF17CCE2B026A1E00761E37 /* QuestionView.swift in Sources */,
+				7AF17CE72B0298D100761E37 /* QuizView.swift in Sources */,
 				7ABE2DDF2B021BFB00279C51 /* Coordinator.swift in Sources */,
 				7AF17CD42B026C9600761E37 /* QuestionsRemoteService.swift in Sources */,
 			);
