@@ -9,15 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            Text("Questions")
+                .tabItem {
+                    Label("contentView.questionsTab".localized(), systemImage: "checkmark.circle.badge.questionmark.fill")
+                }
+            
+            Text("Favorites")
+                .tabItem {
+                    Label("contentView.favoritesTab", systemImage: "heart.fill")
+                }
         }
-        .padding()
+        /*.fullScreenCover(isPresented: $showOnboarding) {
+         OnboardingTabView()
+         }*/ // LANDING PAGE
     }
 }
+
 
 #Preview {
     ContentView()
