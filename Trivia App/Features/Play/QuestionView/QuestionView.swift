@@ -10,46 +10,51 @@ import SwiftUI
 struct QuestionView: View {
     @StateObject private var viewModel: QuestionViewViewModel
     @EnvironmentObject var coordinator: Coordinator
-    @State var streak = 0
     
     init(viewModel: QuestionViewViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
-        VStack(spacing: 20) {
-            HStack {
-                Text("questionView.title".localized())
-                    .font(.title)
-                    .fontWeight(.heavy)
-                Spacer()
-                Text("1 out of 10" )
-                    .font(.title3)
-                    .fontWeight(.heavy)
-            }
-            
-            ProgressBar(progress: 0.7)
-                .padding(.bottom)
-            
-            VStack(alignment: .leading, spacing: 20) {
-                Text(viewModel.question.question)
-                    .font(.title)
-                    .bold()
-                
-                ForEach(viewModel.question.answers, id: \.description) { answer in
-                    RowAnswer(answer: Answer(text: "Answer", isCorrect: false))
+        NavigationStack {
+            VStack(spacing: 20) {
+                HStack {
+                    Text("questionView.title".localized())
+                        .font(.title)
+                        .fontWeight(.heavy)
+                    Spacer()
+                    Text("1 out of 10" )
+                        .font(.title3)
+                        .fontWeight(.heavy)
                 }
-            }
-            
-            MainButton(text: "Next")
-            
-            Spacer()
-            
-        }.padding()
+                
+                ProgressBar(progress: 0.7)
+                    .padding(.bottom)
+                
+                VStack(alignment: .center, spacing: 20) {
+                    Text(viewModel.question.formattedQuestion)
+                        .font(.title)
+                        .bold()
+                    
+                    ForEach(viewModel.question.answers) { answer in
+                        RowAnswer(answer: Answer(text: answer.text, isCorrect: answer.isCorrect))
+                    }
+                }
+                NavigationLink {
+                    coordinator.makeQuestionView()
+                } label: {
+                    MainButton(text: "Next")
+                }
+                
+                Spacer()
+                
+            }.padding()
             .task {
                 await viewModel.getQuestion()
             }
-
+        }
+        .navigationBarBackButtonHidden(true)
+        
     }
 }
 

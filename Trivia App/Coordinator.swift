@@ -27,6 +27,4 @@ class Coordinator: ObservableObject {
         .init(questionRepository: questionsRepository)
     }
     
-    
-    
 }

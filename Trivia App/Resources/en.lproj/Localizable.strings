@@ -9,4 +9,10 @@
 // MARK: - ContentView
 "contentView.playTab" = "Play";
 "contentView.favoritesTab" = "Favorites";
+
+// MARK: - QuestionView
 "questionView.title" = "Trivia App";
+
+// MARK: - QuestionErrorMessage
+"question.formattingErrorMessage" = "Error formatting question: ";
+"question.answersErrorMessage" = "Error formatting answers: ";

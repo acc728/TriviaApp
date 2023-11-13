@@ -18,4 +18,8 @@ struct QuestionsRepository {
     func getQuestion() async throws -> Question {
         return try await remoteService.getQuestion()
     }
+    
+    func getQuiz() async throws -> [Question] {
+        return try await remoteService.getQuiz()
+    }
 }

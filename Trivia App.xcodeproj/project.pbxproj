@@ -186,6 +186,8 @@
 		7ABE2DDB2B021BAA00279C51 /* Play */ = {
 			isa = PBXGroup;
 			children = (
+				7AF17CE42B02919500761E37 /* ModeSelectorView */,
+				7AF17CE52B0291B000761E37 /* QuizView */,
 				7ABE2DE02B022E9200279C51 /* QuestionView */,
 			);
 			path = Play;
@@ -240,6 +242,20 @@
 				7AF17CE22B0286E600761E37 /* MainButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		7AF17CE42B02919500761E37 /* ModeSelectorView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModeSelectorView;
+			sourceTree = "<group>";
+		};
+		7AF17CE52B0291B000761E37 /* QuizView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = QuizView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -6,6 +6,7 @@
 //
 
 struct LiveQuestionsRemoteService: QuestionsRemoteService {
+    
     private let networkClient: NetworkClient
     
     init(networkClient: NetworkClient) {
@@ -15,5 +16,10 @@ struct LiveQuestionsRemoteService: QuestionsRemoteService {
     func getQuestion() async throws -> Question {
         let response: APIResponse<Question> = try await networkClient.get(url: "https://opentdb.com/api.php?amount=1")
         return response.results[0]
+    }
+    
+    func getQuiz() async throws -> [Question] {
+        let response: APIResponse<Question> = try await networkClient.get(url: "https://opentdb.com/api.php?amount=10")
+        return response.results
     }
 }

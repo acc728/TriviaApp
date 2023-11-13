@@ -15,10 +15,26 @@ struct Question: Codable, Identifiable {
     let question, correctAnswer: String
     let incorrectAnswers: [String]
     
-    var answers: [String] {
-        var allAnswers = incorrectAnswers
-        allAnswers.append(correctAnswer)
-        return allAnswers.shuffled()
+    var formattedQuestion: AttributedString {
+        do {
+            return try AttributedString(markdown: question)
+        } catch {
+            print("question.formattingErrorMessage".localized() + error.localizedDescription)
+            return ""
+        }
+    }
+    
+    var answers: [Answer] {
+        do {
+            let correct = [Answer(text: try AttributedString(markdown: correctAnswer), isCorrect: true)]
+            let incorrects = try incorrectAnswers.map { answer in
+                Answer(text: try AttributedString(markdown: answer), isCorrect: false)
+            }
+            return (correct + incorrects).shuffled()
+        } catch {
+            print("question.answersErrorMessage".localized() + error.localizedDescription)
+            return []
+        }
     }
 
     enum CodingKeys: String, CodingKey {

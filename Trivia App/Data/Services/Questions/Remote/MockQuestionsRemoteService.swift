@@ -9,4 +9,19 @@ struct MockQuestionsRemoteService: QuestionsRemoteService {
     func getQuestion() async throws -> Question {
         .example
     }
+    
+    func getQuiz() async throws -> [Question] {
+        [
+            .example,
+            .example,
+            .example,
+            .example,
+            .example,
+            .example,
+            .example,
+            .example,
+            .example,
+            .example
+        ]
+    }
 }
