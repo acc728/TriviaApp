@@ -17,6 +17,11 @@ class Coordinator: ObservableObject {
         questionsRepository = QuestionsRepository(remoteService: questionsRemoteService)
     }
     
+    // MARK: - ModeSelectorView
+    func makeModeSelectorView() -> ModeSelectorView {
+        ModeSelectorView(viewModel: makeQuizViewModel())
+    }
+    
     // MARK: - QuestionView
     func makeQuestionView() -> QuestionView {
         QuestionView(viewModel: makeQuestionViewModel())

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A38DE2B2B035D9E00CB49E3 /* ModeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A38DE2A2B035D9E00CB49E3 /* ModeSelectorView.swift */; };
 		7ABE2DB42B020BDC00279C51 /* Trivia_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE2DB32B020BDC00279C51 /* Trivia_AppApp.swift */; };
 		7ABE2DB62B020BDC00279C51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE2DB52B020BDC00279C51 /* ContentView.swift */; };
 		7ABE2DB82B020BDC00279C51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABE2DB72B020BDC00279C51 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A38DE2A2B035D9E00CB49E3 /* ModeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectorView.swift; sourceTree = "<group>"; };
 		7ABE2DB02B020BDC00279C51 /* Trivia App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trivia App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABE2DB32B020BDC00279C51 /* Trivia_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trivia_AppApp.swift; sourceTree = "<group>"; };
 		7ABE2DB52B020BDC00279C51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 		7AF17CE42B02919500761E37 /* ModeSelectorView */ = {
 			isa = PBXGroup;
 			children = (
+				7A38DE2A2B035D9E00CB49E3 /* ModeSelectorView.swift */,
 			);
 			path = ModeSelectorView;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				7ABE2DB62B020BDC00279C51 /* ContentView.swift in Sources */,
 				7ABE2DB42B020BDC00279C51 /* Trivia_AppApp.swift in Sources */,
 				7ABE2DC52B020DE100279C51 /* NetworkClientError.swift in Sources */,
+				7A38DE2B2B035D9E00CB49E3 /* ModeSelectorView.swift in Sources */,
 				7AF17CE92B02994400761E37 /* QuizViewViewModel.swift in Sources */,
 				7AF17CDD2B027F7C00761E37 /* ProgressBar.swift in Sources */,
 				7AF17CDF2B0281EA00761E37 /* Answer.swift in Sources */,

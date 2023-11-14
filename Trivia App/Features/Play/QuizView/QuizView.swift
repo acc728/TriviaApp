@@ -10,7 +10,6 @@ import SwiftUI
 struct QuizView: View {
     @StateObject private var viewModel: QuizViewViewModel
     @EnvironmentObject var coordinator: Coordinator
-    @State var index = 0.0
     
     init(viewModel: QuizViewViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -22,27 +21,43 @@ struct QuizView: View {
                 Text("questionView.title".localized())
                     .font(.title)
                     .fontWeight(.heavy)
+                
                 Spacer()
-                Text("\(Int(index + 1)) out of 10" )
+                
+                Text("\(viewModel.index + 1) out of \(viewModel.length)")
                     .font(.title3)
                     .fontWeight(.heavy)
             }
             
-            ProgressBar(progress: (index + 1.0) / 10.0)
+            ProgressBar(progress: viewModel.progress)
                 .padding(.bottom)
             
-            //coordinator.makeQuestionView()
-                                                                       
-            MainButton(text: (index < 10 ? "Next" : "Finish"))
-                .onTapGesture {
-                    if index < 10 {
-                        index += 1
-                    }
+            VStack(alignment: .center, spacing: 20) {
+                Text(viewModel.question)
+                    .font(.title)
+                    .bold()
+                
+                ForEach(viewModel.answerChoices) { answer in
+                    RowAnswer(answer: answer)
+                        .environmentObject(viewModel)
                 }
+            }
+            
+            Button {
+                viewModel.goNextQuestion()
+            } label: {
+                MainButton(
+                    text: "Next",
+                    background: viewModel.answerSelected ? Color("AccentColor"): .gray
+                )
+            }
+            .disabled(!viewModel.answerSelected)
             
             Spacer()
             
-        }.padding()
+        }
+        .navigationBarBackButtonHidden(true)
+        .padding()
         .task {
             await viewModel.getQuiz()
         }

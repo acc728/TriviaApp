@@ -39,6 +39,7 @@ struct QuestionView: View {
                     
                     ForEach(viewModel.question.answers) { answer in
                         RowAnswer(answer: Answer(text: answer.text, isCorrect: answer.isCorrect))
+                            .environmentObject(viewModel)
                     }
                 }
                 
@@ -55,7 +56,6 @@ struct QuestionView: View {
                 await viewModel.getQuestion()
             }
         }
-        .navigationBarBackButtonHidden(true)
         
     }
 }

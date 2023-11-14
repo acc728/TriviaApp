@@ -19,6 +19,7 @@ struct MainButton: View {
             .background(background)
             .cornerRadius(30)
             .shadow(radius: 10)
+            .bold()
     }
 }
 

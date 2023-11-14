@@ -10,6 +10,7 @@ import SwiftUI
 struct RowAnswer: View {
     var answer: Answer
     @State private var isSelected = false
+    @EnvironmentObject var viewModel: QuizViewViewModel
     
     var body: some View {
         HStack(spacing: 20) {
@@ -25,11 +26,14 @@ struct RowAnswer: View {
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.white)
-        .foregroundColor(isSelected ? .blue : .gray)
+        .foregroundColor(viewModel.answerSelected ? (isSelected ? Color("AccentColor") : .gray) : Color("AccentColor"))
         .cornerRadius(10)
         .shadow(color: isSelected ? (answer.isCorrect ? .green : .red) : .gray, radius: 5, x: 1, y: 1)
         .onTapGesture {
-            isSelected = true
+            if !viewModel.answerSelected {
+                isSelected = true
+                viewModel.selectAnswer(answer: answer)
+            }
         }
     }
 }
