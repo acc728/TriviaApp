@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A03EC752B03C5E900B405F4 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A03EC742B03C5E900B405F4 /* ColorExtensions.swift */; };
 		7A38DE2B2B035D9E00CB49E3 /* ModeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A38DE2A2B035D9E00CB49E3 /* ModeSelectorView.swift */; };
 		7A966DC22B0380380000946D /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A966DC12B0380380000946D /* QuizView.swift */; };
 		7A966DC42B038BC20000946D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A966DC32B038BC20000946D /* CardView.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A03EC742B03C5E900B405F4 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		7A38DE2A2B035D9E00CB49E3 /* ModeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectorView.swift; sourceTree = "<group>"; };
 		7A966DC12B0380380000946D /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		7A966DC32B038BC20000946D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				7ABE2DD02B02170A00279C51 /* StringExtensions.swift */,
+				7A03EC742B03C5E900B405F4 /* ColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AF17CD02B026C2100761E37 /* QuestionsRepository.swift in Sources */,
+				7A03EC752B03C5E900B405F4 /* ColorExtensions.swift in Sources */,
 				7ABE2DD12B02170A00279C51 /* StringExtensions.swift in Sources */,
 				7AF17CD62B026D3D00761E37 /* LiveQuestionsRemoteService.swift in Sources */,
 				7ABE2DB62B020BDC00279C51 /* ContentView.swift in Sources */,
