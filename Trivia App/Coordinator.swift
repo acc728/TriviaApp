@@ -32,9 +32,14 @@ class Coordinator: ObservableObject {
         .init(questionRepository: questionsRepository)
     }
     
-    // MARK: - QuizView
+    // MARK: - QuizDetailView
     func makeQuizView() -> QuizView {
-        QuizView(viewModel: makeQuizViewModel())
+        QuizView()
+    }
+    
+    // MARK: - QuizDetailView
+    func makeQuizDetailView() -> QuizDetailView {
+        QuizDetailView()
     }
     
     // MARK: - QuizViewViewModel

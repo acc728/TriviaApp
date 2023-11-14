@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            coordinator.makeQuizView()
+            coordinator.makeModeSelectorView()
                 .tabItem {
                     Label("contentView.playTab".localized(), systemImage: "checkmark.circle.badge.questionmark.fill")
                 }
@@ -33,5 +33,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environmentObject(Coordinator(mock: false))
+        .environmentObject(Coordinator(mock: true))
 }

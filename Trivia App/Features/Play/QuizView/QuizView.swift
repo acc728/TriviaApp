@@ -2,64 +2,36 @@
 //  QuizView.swift
 //  Trivia App
 //
-//  Created by user242582 on 13/11/23.
+//  Created by user242582 on 14/11/23.
 //
 
 import SwiftUI
 
 struct QuizView: View {
-    @StateObject private var viewModel: QuizViewViewModel
+    @EnvironmentObject private var viewModel: QuizViewViewModel
     @EnvironmentObject var coordinator: Coordinator
     
-    init(viewModel: QuizViewViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
-    
     var body: some View {
-        VStack(spacing: 20) {
-            HStack {
-                Text("questionView.title".localized())
-                    .font(.title)
-                    .fontWeight(.heavy)
-                
-                Spacer()
-                
-                Text("\(viewModel.index + 1) out of \(viewModel.length)")
-                    .font(.title3)
-                    .fontWeight(.heavy)
-            }
-            
-            ProgressBar(progress: viewModel.progress)
-                .padding(.bottom)
-            
-            VStack(alignment: .center, spacing: 20) {
-                Text(viewModel.question)
+        if viewModel.reachedEnd {
+            VStack(spacing: 20) {
+                Text("Trivia App")
                     .font(.title)
                     .bold()
                 
-                ForEach(viewModel.answerChoices) { answer in
-                    RowAnswer(answer: answer)
-                        .environmentObject(viewModel)
+                Text("Congratulations, you completed the quiz!")
+                
+                Text("You scored \(viewModel.score) out of \(viewModel.length)")
+                
+                NavigationLink {
+                    coordinator.makeModeSelectorView()
+                } label: {
+                    MainButton(text: "Return to Menu")
                 }
+                .navigationBarBackButtonHidden(true)
             }
-            
-            Button {
-                viewModel.goNextQuestion()
-            } label: {
-                MainButton(
-                    text: "Next",
-                    background: viewModel.answerSelected ? Color("AccentColor"): .gray
-                )
-            }
-            .disabled(!viewModel.answerSelected)
-            
-            Spacer()
-            
-        }
-        .navigationBarBackButtonHidden(true)
-        .padding()
-        .task {
-            await viewModel.getQuiz()
+        } else {
+            coordinator.makeQuizDetailView()
+                .environmentObject(viewModel)
         }
     }
 }

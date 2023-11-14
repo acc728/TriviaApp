@@ -24,13 +24,18 @@ class QuizViewViewModel: ObservableObject {
     init(questionRepository: QuestionsRepository) {
         self.questionRepository = questionRepository
         Task {
-            await getQuiz()
+            await self.getQuiz()
         }
     }
     
     @MainActor
     func getQuiz() async {
         do {
+            self.index = 0
+            self.score = 0
+            self.progress = 0.0
+            self.reachedEnd = false
+            
             quiz = try await questionRepository.getQuiz()
             self.length = quiz.count
             self.setQuestion()
@@ -42,6 +47,7 @@ class QuizViewViewModel: ObservableObject {
     func goNextQuestion(){
         if index + 1 < length {
             index += 1
+            progress += 1.0
         } else {
             reachedEnd = true
         }

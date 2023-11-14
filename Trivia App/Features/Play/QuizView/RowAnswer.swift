@@ -40,4 +40,5 @@ struct RowAnswer: View {
 
 #Preview {
     RowAnswer(answer: .example)
+        .environmentObject(Coordinator().makeQuizViewModel())
 }

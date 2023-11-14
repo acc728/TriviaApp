@@ -34,10 +34,12 @@ struct ModeSelectorView: View {
                 
                 NavigationLink {
                     coordinator.makeQuizView()
+                        .environmentObject(viewModel)
                 } label: {
                     MainButton(text: "Quiz Mode")
                 }
             }
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
