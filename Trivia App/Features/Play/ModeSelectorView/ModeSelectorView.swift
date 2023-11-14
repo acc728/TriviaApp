@@ -19,7 +19,7 @@ struct ModeSelectorView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 20) {
                 VStack(spacing: 10) {
                     HStack {
                         Text("Quiz Trivia App")
@@ -36,40 +36,40 @@ struct ModeSelectorView: View {
                         Spacer()
                     }
                 }
+                .padding(.horizontal)
+                
+                VStack(spacing: 40){
+                    NavigationLink {
+                        coordinator.makeQuestionView()
+                            .environmentObject(questionViewModel)
+                    } label: {
+                        CardView(
+                            title: "Survival",
+                            message: "Reach your best streak!",
+                            systemName: "trophy.fill",
+                            colorsGradient: [Color(hex: 0xFF4470),
+                                             Color(hex: 0xF4698A),
+                                             Color(hex: 0xF89051),
+                                             Color(hex: 0xFAB168)]
+                        )
+                    }
+                    
+                    NavigationLink {
+                        coordinator.makeQuizView()
+                            .environmentObject(quizViewModel)
+                    } label: {
+                        CardView(
+                            title: "Quiz Mode",
+                            message: "Solve a list of questions!",
+                            systemName: "doc.questionmark.fill",
+                            colorsGradient: [Color(hex: 0x2C3EE2),
+                                             Color(hex: 0x4B69DE),
+                                             Color(hex: 0x1791D6),
+                                             Color(hex: 0x17AAD6)]
+                        )
+                    }
+                }
                 .padding()
-                
-                
-                NavigationLink {
-                    coordinator.makeQuestionView()
-                        .environmentObject(questionViewModel)
-                } label: {
-                    CardView(
-                        title: "Survival",
-                        message: "Reach your best streak!",
-                        systemName: "trophy.fill",
-                        colorsGradient: [Color(hex: 0xFF4470),
-                                         Color(hex: 0xF4698A),
-                                         Color(hex: 0xF89051),
-                                         Color(hex: 0xFAB168)]
-                    )
-                    .padding()
-                }
-                
-                NavigationLink {
-                    coordinator.makeQuizView()
-                        .environmentObject(quizViewModel)
-                } label: {
-                    CardView(
-                        title: "Quiz Mode",
-                        message: "Solve a list of questions!",
-                        systemName: "doc.questionmark.fill",
-                        colorsGradient: [Color(hex: 0x2C3EE2),
-                                         Color(hex: 0x4B69DE),
-                                         Color(hex: 0x1791D6),
-                                         Color(hex: 0x17AAD6)]
-                    )
-                    .padding()
-                }
             }
             .navigationBarBackButtonHidden(true)
             Spacer()

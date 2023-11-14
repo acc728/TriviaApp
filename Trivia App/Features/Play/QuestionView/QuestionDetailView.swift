@@ -27,7 +27,24 @@ struct QuestionDetailView: View {
                 }
             }
             
-            Text("You have a streak of \(viewModel.streak)")
+            HStack {
+                Text("You have a streak of \(viewModel.streak)")
+                    .font(.title3)
+                Image(systemName: "flame.fill")
+                    .resizable()
+                    .frame(width: 25,height: 30)
+                    .foregroundStyle(
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color(hex: 0xFF4470),
+                                                        Color(hex: 0xF4698A),
+                                                        Color(hex: 0xF89051),
+                                                        Color(hex: 0xFAB168)]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    
+            }
             
             
             VStack(alignment: .center, spacing: 20) {
