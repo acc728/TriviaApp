@@ -33,5 +33,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environmentObject(Coordinator(mock: true))
+        .environmentObject(Coordinator(mock: false))
 }

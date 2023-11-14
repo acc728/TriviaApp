@@ -24,8 +24,8 @@ struct QuizDetailView: View {
                     .font(.title3)
                     .fontWeight(.heavy)
                 
-                Button {
-                    
+                NavigationLink {
+                    coordinator.makeModeSelectorView()
                 } label: {
                     Image(systemName: "x.circle.fill")
                 }
@@ -40,7 +40,7 @@ struct QuizDetailView: View {
                     .bold()
                 
                 ForEach(viewModel.answerChoices) { answer in
-                    RowAnswer(answer: answer)
+                    QuizRowAnswer(answer: answer)
                         .environmentObject(viewModel)
                 }
             }

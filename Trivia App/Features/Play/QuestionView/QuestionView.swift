@@ -8,55 +8,54 @@
 import SwiftUI
 
 struct QuestionView: View {
-    @StateObject private var viewModel: QuestionViewViewModel
-    //var question : Question
+    @EnvironmentObject private var viewModel: QuestionViewViewModel
     @EnvironmentObject var coordinator: Coordinator
     
-    init(viewModel: QuestionViewViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
-    
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 20) {
-               /*HStack {
-                    Text("questionView.title".localized())
-                        .font(.title)
-                        .fontWeight(.heavy)
-                    Spacer()
-                    Text("1 out of 10" )
-                        .font(.title3)
-                        .fontWeight(.heavy)
-                }
-                
-                ProgressBar(progress: 0.7)
-                    .padding(.bottom)*/
-                
-                VStack(alignment: .center, spacing: 20) {
-                    Text(viewModel.question.formattedQuestion)
-                        .font(.title)
-                        .bold()
-                    
-                    ForEach(viewModel.question.answers) { answer in
-                        RowAnswer(answer: Answer(text: answer.text, isCorrect: answer.isCorrect))
-                            .environmentObject(viewModel)
-                    }
-                }
-                
-                NavigationLink {
-                    coordinator.makeQuestionView()
-                } label: {
-                    MainButton(text: "Next")
-                }
+        VStack(spacing: 20) {
+            HStack {
+                Text("questionView.title".localized())
+                    .font(.title)
+                    .fontWeight(.heavy)
                 
                 Spacer()
                 
-            }.padding()
-            .task {
-                await viewModel.getQuestion()
+                NavigationLink {
+                    coordinator.makeModeSelectorView()
+                } label: {
+                    Image(systemName: "x.circle.fill")
+                }
             }
+            
+            
+            VStack(alignment: .center, spacing: 20) {
+                Text(viewModel.questionText)
+                    .font(.title)
+                    .bold()
+                
+                ForEach(viewModel.answerChoices) { answer in
+                    QuestionRowAnswer(answer: answer)
+                        .environmentObject(viewModel)
+                }
+            }
+            
+            Button {
+                Task {
+                    await viewModel.getQuestion()
+                }
+            } label: {
+                MainButton(
+                    text: "Next",
+                    background: viewModel.answerSelected ? Color("AccentColor"): .gray
+                )
+            }
+            .disabled(!viewModel.answerSelected)
+            
+            Spacer()
+            
         }
-        
+        .navigationBarBackButtonHidden(true)
+        .padding()
     }
 }
 
@@ -64,4 +63,5 @@ struct QuestionView: View {
     let coordinator = Coordinator(mock: true)
     return coordinator.makeQuestionView()
         .environmentObject(coordinator)
+        .environmentObject(coordinator.makeQuestionViewModel())
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RowAnswer: View {
+struct QuizRowAnswer: View {
     var answer: Answer
     @State private var isSelected = false
     @EnvironmentObject var viewModel: QuizViewViewModel
@@ -39,6 +39,6 @@ struct RowAnswer: View {
 }
 
 #Preview {
-    RowAnswer(answer: .example)
+    QuizRowAnswer(answer: .example)
         .environmentObject(Coordinator().makeQuizViewModel())
 }

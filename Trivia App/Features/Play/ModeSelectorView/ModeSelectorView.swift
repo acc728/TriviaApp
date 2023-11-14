@@ -9,47 +9,55 @@ import SwiftUI
 
 struct ModeSelectorView: View {
     @EnvironmentObject var coordinator: Coordinator
-    @StateObject private var viewModel: QuizViewViewModel
+    @StateObject private var quizViewModel: QuizViewViewModel
+    @StateObject private var questionViewModel: QuestionViewViewModel
     
-    init(viewModel: QuizViewViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
+    init(quizViewModel: QuizViewViewModel, questionViewModel: QuestionViewViewModel) {
+        _quizViewModel = StateObject(wrappedValue: quizViewModel)
+        _questionViewModel = StateObject(wrappedValue: questionViewModel)
     }
     
     var body: some View {
         NavigationStack {
             VStack(alignment: .center) {
                 VStack(spacing: 10) {
-                        HStack {
-                            Text("Quiz Trivia App")
-                                .font(.largeTitle)
-                                .bold()
-                            Spacer()
-                        }
-                        .padding(.top)
-                        
-                        HStack {
-                            Text("Challenge your knowledge and have fun with different gamemodes!")
-                                .font(.title3)
-                                .fontWeight(.light)
-                            Spacer()
-                        }
+                    HStack {
+                        Text("Quiz Trivia App")
+                            .font(.largeTitle)
+                            .bold()
+                        Spacer()
+                    }
+                    .padding(.top)
+                    
+                    HStack {
+                        Text("Challenge your knowledge and have fun with different gamemodes!")
+                            .font(.title3)
+                            .fontWeight(.light)
+                        Spacer()
+                    }
                 }
                 .padding()
                 
-                CardView(
-                    title: "Survival",
-                    message: "Reach your best streak!",
-                    systemName: "trophy.fill",
-                    colorsGradient: [Color(hex: 0xFF4470),
-                                     Color(hex: 0xF4698A),
-                                     Color(hex: 0xF89051),
-                                     Color(hex: 0xFAB168)]
-                )
-                .padding()
+                
+                NavigationLink {
+                    coordinator.makeQuestionView()
+                        .environmentObject(questionViewModel)
+                } label: {
+                    CardView(
+                        title: "Survival",
+                        message: "Reach your best streak!",
+                        systemName: "trophy.fill",
+                        colorsGradient: [Color(hex: 0xFF4470),
+                                         Color(hex: 0xF4698A),
+                                         Color(hex: 0xF89051),
+                                         Color(hex: 0xFAB168)]
+                    )
+                    .padding()
+                }
                 
                 NavigationLink {
                     coordinator.makeQuizView()
-                        .environmentObject(viewModel)
+                        .environmentObject(quizViewModel)
                 } label: {
                     CardView(
                         title: "Quiz Mode",
@@ -64,7 +72,6 @@ struct ModeSelectorView: View {
                 }
             }
             .navigationBarBackButtonHidden(true)
-            .padding(.vertical)
             Spacer()
         }
     }
