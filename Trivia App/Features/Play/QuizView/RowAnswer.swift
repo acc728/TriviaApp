@@ -28,7 +28,7 @@ struct RowAnswer: View {
         .background(.white)
         .foregroundColor(viewModel.answerSelected ? (isSelected ? Color("AccentColor") : .gray) : Color("AccentColor"))
         .cornerRadius(10)
-        .shadow(color: isSelected ? (answer.isCorrect ? .green : .red) : .gray, radius: 5, x: 1, y: 1)
+        .shadow(color: isSelected ? (answer.isCorrect ? .green : .red) : .gray, radius: 10, x: 0.5, y: 0.5)
         .onTapGesture {
             if !viewModel.answerSelected {
                 isSelected = true

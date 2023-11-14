@@ -14,7 +14,7 @@ struct QuizView: View {
     var body: some View {
         if viewModel.reachedEnd {
             VStack(spacing: 20) {
-                Text("Trivia App")
+                Text("Quiz Trivia App")
                     .font(.title)
                     .bold()
                 

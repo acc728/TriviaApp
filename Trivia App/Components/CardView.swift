@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     var title: String
+    var message: String
     var systemName: String
     var colorsGradient: [Color]
     
@@ -18,19 +19,23 @@ struct CardView: View {
                 Spacer()
                 Image(systemName: systemName)
                     .resizable()
-                    .frame(width: 40, height: 40)
+                    .frame(width: 30, height: 30)
                     .foregroundStyle(.white)
                     
                 Text(title)
                     .bold()
                     .font(.largeTitle)
                     .foregroundStyle(.white)
+                
+                Text(message)
+                    .font(.title3)
+                    .foregroundStyle(.white)
                     
             }
             .padding()
             Spacer()
         }
-        .frame(maxWidth: .infinity, maxHeight: 200)
+        .frame(maxWidth: .infinity, maxHeight: 240)
         .background(
             LinearGradient(
                 gradient: Gradient(colors: colorsGradient),
@@ -43,7 +48,8 @@ struct CardView: View {
 
 #Preview {
     CardView(
-        title: "Survival",
+        title: "Quiz Mode",
+        message: " List of questions!",
         systemName: "trophy.fill",
         colorsGradient: [Color(hex: 0xFF4470),
                  Color(hex: 0xF4698A),

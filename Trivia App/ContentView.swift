@@ -14,12 +14,12 @@ struct ContentView: View {
         TabView {
             coordinator.makeModeSelectorView()
                 .tabItem {
-                    Label("contentView.playTab".localized(), systemImage: "checkmark.circle.badge.questionmark.fill")
+                    Label("contentView.playTab".localized(), systemImage: "gamecontroller.fill")
                 }
             
             Text("Favorites")
                 .tabItem {
-                    Label("contentView.favoritesTab", systemImage: "heart.fill")
+                    Label("contentView.statsTab", systemImage: "person.text.rectangle.fill")
                 }
         }
         /*.fullScreenCover(isPresented: $showOnboarding) {

@@ -17,29 +17,55 @@ struct ModeSelectorView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .center, spacing: 20){
-                Text("PLAY TRIVIA !")
-                    .font(.largeTitle)
-                    .bold()
+            VStack(alignment: .center) {
+                VStack(spacing: 10) {
+                        HStack {
+                            Text("Quiz Trivia App")
+                                .font(.largeTitle)
+                                .bold()
+                            Spacer()
+                        }
+                        .padding(.top)
+                        
+                        HStack {
+                            Text("Challenge your knowledge and have fun with different gamemodes!")
+                                .font(.title3)
+                                .fontWeight(.light)
+                            Spacer()
+                        }
+                }
+                .padding()
                 
-                Text("Select Survival mode and try to get the best streak you can!")
-                    .multilineTextAlignment(.center)
-                    .font(.headline)
-                
-                MainButton(text: "Survival Mode")
-                
-                Text("Select Quiz mode to play with a 10 questions quiz !")
-                    .multilineTextAlignment(.center)
-                    .font(.headline)
+                CardView(
+                    title: "Survival",
+                    message: "Reach your best streak!",
+                    systemName: "trophy.fill",
+                    colorsGradient: [Color(hex: 0xFF4470),
+                                     Color(hex: 0xF4698A),
+                                     Color(hex: 0xF89051),
+                                     Color(hex: 0xFAB168)]
+                )
+                .padding()
                 
                 NavigationLink {
                     coordinator.makeQuizView()
                         .environmentObject(viewModel)
                 } label: {
-                    MainButton(text: "Quiz Mode")
+                    CardView(
+                        title: "Quiz Mode",
+                        message: "Solve a list of questions!",
+                        systemName: "doc.questionmark.fill",
+                        colorsGradient: [Color(hex: 0x2C3EE2),
+                                         Color(hex: 0x4B69DE),
+                                         Color(hex: 0x1791D6),
+                                         Color(hex: 0x17AAD6)]
+                    )
+                    .padding()
                 }
             }
             .navigationBarBackButtonHidden(true)
+            .padding(.vertical)
+            Spacer()
         }
     }
 }

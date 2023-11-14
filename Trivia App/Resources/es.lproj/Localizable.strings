@@ -8,10 +8,10 @@
 
 // MARK: - ContentView
 "contentView.playTab" = "Jugar";
-"contentView.favoritesTab" = "Favoritos";
+"contentView.statsTab" = "Estadísticas";
 
 // MARK: - QuestionView
-"questionView.title" = "Trivia App";
+"questionView.title" = "Quiz Trivia";
 
 // MARK: - QuestionErrorMessage
 "question.errorMessage" = "Error formateando la pregunta: ";

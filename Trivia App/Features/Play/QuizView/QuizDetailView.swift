@@ -23,6 +23,12 @@ struct QuizDetailView: View {
                 Text("\(viewModel.index + 1) out of \(viewModel.length)")
                     .font(.title3)
                     .fontWeight(.heavy)
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "x.circle.fill")
+                }
             }
             
             ProgressBar(progress: viewModel.progress)
