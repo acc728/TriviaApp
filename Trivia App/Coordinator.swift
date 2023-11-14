@@ -22,15 +22,24 @@ class Coordinator: ObservableObject {
         ModeSelectorView(quizViewModel: makeQuizViewModel(), questionViewModel: makeQuestionViewModel())
     }
     
-    // MARK: - QuestionView
+    
+    
+    // MARK: - QuestionDetailView
     func makeQuestionView() -> QuestionView {
         QuestionView()
+    }
+    
+    // MARK: - QuestionDetailView
+    func makeQuestionDetailView() -> QuestionDetailView {
+        QuestionDetailView()
     }
     
     // MARK: - QuestionViewViewModel
     func makeQuestionViewModel() -> QuestionViewViewModel {
         .init(questionRepository: questionsRepository)
     }
+    
+    
     
     // MARK: - QuizDetailView
     func makeQuizView() -> QuizView {

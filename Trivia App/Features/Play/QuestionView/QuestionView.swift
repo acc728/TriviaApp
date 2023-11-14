@@ -1,8 +1,8 @@
 //
-//  QuestionsView.swift
+//  QuestionView.swift
 //  Trivia App
 //
-//  Created by user242582 on 13/11/23.
+//  Created by user242582 on 14/11/23.
 //
 
 import SwiftUI
@@ -12,50 +12,27 @@ struct QuestionView: View {
     @EnvironmentObject var coordinator: Coordinator
     
     var body: some View {
-        VStack(spacing: 20) {
-            HStack {
-                Text("questionView.title".localized())
+        if viewModel.reachedEnd {
+            VStack(spacing: 20) {
+                Text("Quiz Trivia App")
                     .font(.title)
-                    .fontWeight(.heavy)
+                    .bold()
                 
-                Spacer()
+                Text("Oops you lost your streak. Dont worry and try it again!")
+                
+                Text("You got a streak of \(viewModel.streak)")
                 
                 NavigationLink {
                     coordinator.makeModeSelectorView()
                 } label: {
-                    Image(systemName: "x.circle.fill")
+                    MainButton(text: "Return to Menu")
                 }
+                .navigationBarBackButtonHidden(true)
             }
-            
-            
-            VStack(alignment: .center, spacing: 20) {
-                Text(viewModel.questionText)
-                    .font(.title)
-                    .bold()
-                
-                ForEach(viewModel.answerChoices) { answer in
-                    QuestionRowAnswer(answer: answer)
-                        .environmentObject(viewModel)
-                }
-            }
-            
-            Button {
-                Task {
-                    await viewModel.getQuestion()
-                }
-            } label: {
-                MainButton(
-                    text: "Next",
-                    background: viewModel.answerSelected ? Color("AccentColor"): .gray
-                )
-            }
-            .disabled(!viewModel.answerSelected)
-            
-            Spacer()
-            
+        } else {
+            coordinator.makeQuestionDetailView()
+                .environmentObject(viewModel)
         }
-        .navigationBarBackButtonHidden(true)
-        .padding()
     }
 }
 

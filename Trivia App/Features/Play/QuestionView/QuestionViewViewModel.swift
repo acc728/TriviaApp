@@ -48,7 +48,6 @@ class QuestionViewViewModel: ObservableObject {
         if answer.isCorrect {
             streak += 1
         } else {
-            streak = 0
             failed = true
         }
     }
