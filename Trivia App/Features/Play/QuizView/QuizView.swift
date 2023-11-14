@@ -40,4 +40,5 @@ struct QuizView: View {
     let coordinator = Coordinator(mock: true)
     return coordinator.makeQuizView()
         .environmentObject(coordinator)
+        .environmentObject(coordinator.makeQuizViewModel())
 }

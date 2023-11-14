@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7A38DE2B2B035D9E00CB49E3 /* ModeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A38DE2A2B035D9E00CB49E3 /* ModeSelectorView.swift */; };
 		7A966DC22B0380380000946D /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A966DC12B0380380000946D /* QuizView.swift */; };
+		7A966DC42B038BC20000946D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A966DC32B038BC20000946D /* CardView.swift */; };
 		7ABE2DB42B020BDC00279C51 /* Trivia_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE2DB32B020BDC00279C51 /* Trivia_AppApp.swift */; };
 		7ABE2DB62B020BDC00279C51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE2DB52B020BDC00279C51 /* ContentView.swift */; };
 		7ABE2DB82B020BDC00279C51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABE2DB72B020BDC00279C51 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		7A38DE2A2B035D9E00CB49E3 /* ModeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectorView.swift; sourceTree = "<group>"; };
 		7A966DC12B0380380000946D /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		7A966DC32B038BC20000946D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		7ABE2DB02B020BDC00279C51 /* Trivia App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trivia App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABE2DB32B020BDC00279C51 /* Trivia_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trivia_AppApp.swift; sourceTree = "<group>"; };
 		7ABE2DB52B020BDC00279C51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			children = (
 				7AF17CDC2B027F7C00761E37 /* ProgressBar.swift */,
 				7AF17CE22B0286E600761E37 /* MainButton.swift */,
+				7A966DC32B038BC20000946D /* CardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				7AF17CCE2B026A1E00761E37 /* QuestionView.swift in Sources */,
 				7AF17CE72B0298D100761E37 /* QuizDetailView.swift in Sources */,
 				7ABE2DDF2B021BFB00279C51 /* Coordinator.swift in Sources */,
+				7A966DC42B038BC20000946D /* CardView.swift in Sources */,
 				7AF17CD42B026C9600761E37 /* QuestionsRemoteService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
