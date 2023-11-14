@@ -48,6 +48,7 @@ class QuizViewViewModel: ObservableObject {
         if index + 1 < length {
             index += 1
             progress += 1.0
+            setQuestion()
         } else {
             reachedEnd = true
         }
