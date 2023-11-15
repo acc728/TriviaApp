@@ -22,7 +22,8 @@ struct QuizDetailView: View {
                         LinearGradient(
                             colors: Gradients.blueGradient,
                             startPoint: .topLeading,
-                            endPoint: .bottomTrailing))
+                            endPoint: .bottomTrailing)
+                    )
                 Spacer()
                 
                 NavigationLink() {

@@ -17,15 +17,42 @@ struct QuestionView: View {
                 Text("Quiz Trivia App")
                     .font(.title)
                     .bold()
+                    .foregroundStyle(
+                        LinearGradient(
+                            gradient: Gradient(colors: Gradients.redGradient),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                
+                Image("trophy")
+                    .resizable()
+                    .scaledToFit()
                 
                 Text("Oops you lost your streak. Dont worry and try it again!")
                 
-                Text("You got a streak of \(viewModel.streak)")
+                HStack {
+                    Text("You have a streak of \(viewModel.streak)")
+                        .font(.title3)
+                        .fontWeight(.light)
+                        .bold()
+                    
+                    Image(systemName: "flame.fill")
+                        .resizable()
+                        .frame(width: 25,height: 30)
+                        .foregroundStyle(
+                            LinearGradient(
+                                gradient: Gradient(colors: Gradients.redGradient),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                }
                 
                 NavigationLink {
                     coordinator.makeModeSelectorView()
                 } label: {
-                    MainButton(text: "Return to Menu")
+                    MainButton(text: "Return to Menu", background: .pink)
                 }
                 .navigationBarBackButtonHidden(true)
             }

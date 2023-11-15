@@ -17,10 +17,21 @@ struct QuizView: View {
                 Text("Quiz Trivia App")
                     .font(.title)
                     .bold()
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: Gradients.blueGradient,
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing)
+                    )
                 
                 Text("Congratulations, you completed the quiz!")
                 
+                Image("trophy")
+                    .resizable()
+                    .scaledToFit()
+                
                 Text("You scored \(viewModel.score) out of \(viewModel.length)")
+                    .bold()
                 
                 NavigationLink {
                     coordinator.makeModeSelectorView()
