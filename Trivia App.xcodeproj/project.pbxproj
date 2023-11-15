@@ -25,6 +25,7 @@
 		7ABE2DD12B02170A00279C51 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE2DD02B02170A00279C51 /* StringExtensions.swift */; };
 		7ABE2DD52B02176C00279C51 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7ABE2DD72B02176C00279C51 /* Localizable.strings */; };
 		7ABE2DDF2B021BFB00279C51 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE2DDE2B021BFB00279C51 /* Coordinator.swift */; };
+		7ADE7C1D2B050C2E008ACC60 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADE7C1C2B050C2E008ACC60 /* Gradients.swift */; };
 		7AF17CCE2B026A1E00761E37 /* QuestionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF17CCD2B026A1E00761E37 /* QuestionDetailView.swift */; };
 		7AF17CD02B026C2100761E37 /* QuestionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF17CCF2B026C2100761E37 /* QuestionsRepository.swift */; };
 		7AF17CD42B026C9600761E37 /* QuestionsRemoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF17CD32B026C9600761E37 /* QuestionsRemoteService.swift */; };
@@ -60,6 +61,7 @@
 		7ABE2DD62B02176C00279C51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7ABE2DD82B02176D00279C51 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7ABE2DDE2B021BFB00279C51 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		7ADE7C1C2B050C2E008ACC60 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		7AF17CCD2B026A1E00761E37 /* QuestionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailView.swift; sourceTree = "<group>"; };
 		7AF17CCF2B026C2100761E37 /* QuestionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsRepository.swift; sourceTree = "<group>"; };
 		7AF17CD32B026C9600761E37 /* QuestionsRemoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsRemoteService.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		7ABE2DD22B02173D00279C51 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7ADE7C1C2B050C2E008ACC60 /* Gradients.swift */,
 				7ABE2DD72B02176C00279C51 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -373,6 +376,7 @@
 				7AF17CD82B0270F600761E37 /* MockQuestionsRemoteService.swift in Sources */,
 				7ABE2DCE2B02158800279C51 /* Question.swift in Sources */,
 				7ABE2DCC2B02130C00279C51 /* APIResponse.swift in Sources */,
+				7ADE7C1D2B050C2E008ACC60 /* Gradients.swift in Sources */,
 				7AF17CDA2B02729200761E37 /* QuestionViewViewModel.swift in Sources */,
 				7AF17CE32B0286E600761E37 /* MainButton.swift in Sources */,
 				7AF17CE12B02825F00761E37 /* QuizRowAnswer.swift in Sources */,

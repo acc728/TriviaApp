@@ -17,33 +17,41 @@ struct QuestionDetailView: View {
                 Text("questionView.title".localized())
                     .font(.title)
                     .fontWeight(.heavy)
-                
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: Gradients.redGradient,
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing))
                 Spacer()
                 
-                NavigationLink {
+                NavigationLink() {
                     coordinator.makeModeSelectorView()
                 } label: {
-                    Image(systemName: "x.circle.fill")
+                    HStack {
+                        Text("Close Quiz")
+                            .foregroundStyle(.red)
+                            .bold()
+                        Image(systemName: "x.circle.fill")
+                            .foregroundColor(.red)
+                    }
                 }
             }
             
             HStack {
                 Text("You have a streak of \(viewModel.streak)")
                     .font(.title3)
+                    .fontWeight(.light)
+                
                 Image(systemName: "flame.fill")
                     .resizable()
                     .frame(width: 25,height: 30)
                     .foregroundStyle(
                         LinearGradient(
-                            gradient: Gradient(colors: [Color(hex: 0xFF4470),
-                                                        Color(hex: 0xF4698A),
-                                                        Color(hex: 0xF89051),
-                                                        Color(hex: 0xFAB168)]),
+                            gradient: Gradient(colors: Gradients.redGradient),
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         )
                     )
-                    
             }
             
             
@@ -57,6 +65,7 @@ struct QuestionDetailView: View {
                         .environmentObject(viewModel)
                 }
             }
+            .padding(.top)
             
             Button {
                 Task {

@@ -10,6 +10,7 @@ import SwiftUI
 struct QuizDetailView: View {
     @EnvironmentObject private var viewModel: QuizViewViewModel
     @EnvironmentObject var coordinator: Coordinator
+    //@State var closeQuizAlert: Bool = false
     
     var body: some View {
         VStack(spacing: 20) {
@@ -17,22 +18,41 @@ struct QuizDetailView: View {
                 Text("questionView.title".localized())
                     .font(.title)
                     .fontWeight(.heavy)
-                
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: Gradients.blueGradient,
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing))
                 Spacer()
                 
-                Text("\(viewModel.index + 1) out of \(viewModel.length)")
-                    .font(.title3)
-                    .fontWeight(.heavy)
-                
-                NavigationLink {
+                NavigationLink() {
                     coordinator.makeModeSelectorView()
                 } label: {
-                    Image(systemName: "x.circle.fill")
+                    HStack {
+                        Text("Close Quiz")
+                            .foregroundStyle(.red)
+                            .bold()
+                        Image(systemName: "x.circle.fill")
+                            .foregroundColor(.red)
+                    }
                 }
+                
+                /*Button {
+                    closeQuizAlert = true
+                } label: {
+                    Image(systemName: "x.circle.fill")
+                }*/
             }
             
             ProgressBar(progress: viewModel.progress)
-                .padding(.bottom)
+            
+            HStack {
+                Spacer()
+                Text("\(viewModel.index + 1) out of \(viewModel.length)")
+                    .font(.title3)
+                    .fontWeight(.light)
+            }
+            .padding(.bottom)
             
             VStack(alignment: .center, spacing: 20) {
                 Text(viewModel.question)
@@ -60,6 +80,19 @@ struct QuizDetailView: View {
         }
         .navigationBarBackButtonHidden(true)
         .padding()
+        /*.alert(isPresented: $closeQuizAlert) {
+            Alert(
+                title: Text("Would like to close the quiz?"),
+                message: Text("You will lost all the progress"),
+                primaryButton: .destructive(Text("Exit")) {
+                    
+                },
+                secondaryButton: .cancel() {
+                    closeQuizAlert = false
+                }
+
+            )
+        }*/
     }
 }
 

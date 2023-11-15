@@ -42,7 +42,7 @@ struct CardView: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing))
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .shadow(radius: 5, x: 3, y: 3)
+        .shadow(color: .gray, radius: 5, x: 3, y: 3)
     }
 }
 

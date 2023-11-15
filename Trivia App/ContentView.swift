@@ -21,7 +21,13 @@ struct ContentView: View {
                 .tabItem {
                     Label("contentView.statsTab", systemImage: "person.text.rectangle.fill")
                 }
-        }
+        }.tint(
+            LinearGradient(
+                gradient: Gradient(colors: Gradients.redGradient),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing)
+        )
+        
         /*.fullScreenCover(isPresented: $showOnboarding) {
          OnboardingTabView()
          }*/ 

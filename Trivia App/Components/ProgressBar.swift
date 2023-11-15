@@ -12,8 +12,12 @@ struct ProgressBar: View {
     
     var body: some View {
         Gauge(value: progress, label: {})
-            .tint(Color("AccentColor"))
-
+            .tint(
+                LinearGradient(
+                    gradient: Gradient(colors: Gradients.blueGradient),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing)
+            )
     }
 }
 

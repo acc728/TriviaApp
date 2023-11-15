@@ -23,6 +23,11 @@ struct ModeSelectorView: View {
                 VStack(spacing: 10) {
                     HStack {
                         Text("Quiz Trivia App")
+                            .foregroundStyle(
+                                LinearGradient(
+                                    gradient: Gradient(colors: Gradients.redGradient),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing))
                             .font(.largeTitle)
                             .bold()
                         Spacer()
@@ -47,10 +52,7 @@ struct ModeSelectorView: View {
                             title: "Survival",
                             message: "Reach your best streak!",
                             systemName: "trophy.fill",
-                            colorsGradient: [Color(hex: 0xFF4470),
-                                             Color(hex: 0xF4698A),
-                                             Color(hex: 0xF89051),
-                                             Color(hex: 0xFAB168)]
+                            colorsGradient: Gradients.redGradient
                         )
                     }
                     
@@ -62,10 +64,7 @@ struct ModeSelectorView: View {
                             title: "Quiz Mode",
                             message: "Solve a list of questions!",
                             systemName: "doc.questionmark.fill",
-                            colorsGradient: [Color(hex: 0x2C3EE2),
-                                             Color(hex: 0x4B69DE),
-                                             Color(hex: 0x1791D6),
-                                             Color(hex: 0x17AAD6)]
+                            colorsGradient: Gradients.blueGradient
                         )
                     }
                 }

@@ -25,7 +25,8 @@ struct QuizView: View {
                 NavigationLink {
                     coordinator.makeModeSelectorView()
                 } label: {
-                    MainButton(text: "Return to Menu")
+                    MainButton(
+                        text: "Return to Menu")
                 }
                 .navigationBarBackButtonHidden(true)
             }

@@ -25,8 +25,12 @@ struct QuestionRowAnswer: View {
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.white)
-        .foregroundColor(viewModel.answerSelected ? (isSelected ? Color("AccentColor") : .gray) : Color("AccentColor"))
+        .background( LinearGradient(
+            gradient: Gradient(colors: Gradients.redGradient),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing)
+        )
+        .foregroundColor(.white)
         .cornerRadius(10)
         .shadow(color: isSelected ? (answer.isCorrect ? .green : .red) : .gray, radius: 10, x: 0.5, y: 0.5)
         .onTapGesture {
