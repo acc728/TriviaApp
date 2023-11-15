@@ -20,7 +20,7 @@ struct QuizRowAnswer: View {
             if isSelected {
                 Spacer()
                 Image(systemName: answer.isCorrect ? "checkmark.circle.fill" : "x.circle.fill")
-                    .foregroundColor(answer.isCorrect ? .green : .red)
+                    .foregroundColor(answer.isCorrect ? Color("Green") : Color("Red"))
             }
         }
         .padding()
@@ -32,7 +32,7 @@ struct QuizRowAnswer: View {
         )
         .foregroundColor(.white)
         .cornerRadius(10)
-        .shadow(color: isSelected ? (answer.isCorrect ? .green : .red) : .gray, radius: 10, x: 0.5, y: 0.5)
+        .shadow(color: isSelected ? (answer.isCorrect ? Color("Green") : Color("Red")) : .gray, radius: 15, x: 0.5, y: 0.5)
         .onTapGesture {
             if !viewModel.answerSelected {
                 isSelected = true

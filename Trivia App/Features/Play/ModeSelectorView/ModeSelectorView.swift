@@ -52,7 +52,7 @@ struct ModeSelectorView: View {
                             title: "Survival",
                             message: "Reach your best streak!",
                             systemName: "trophy.fill",
-                            imageName: "fire",
+                            imageName: "trophy",
                             colorsGradient: Gradients.redGradient
                         )
                     }
