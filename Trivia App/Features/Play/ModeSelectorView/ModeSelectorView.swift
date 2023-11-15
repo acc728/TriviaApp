@@ -52,6 +52,7 @@ struct ModeSelectorView: View {
                             title: "Survival",
                             message: "Reach your best streak!",
                             systemName: "trophy.fill",
+                            imageName: "fire",
                             colorsGradient: Gradients.redGradient
                         )
                     }
@@ -64,6 +65,7 @@ struct ModeSelectorView: View {
                             title: "Quiz Mode",
                             message: "Solve a list of questions!",
                             systemName: "doc.questionmark.fill",
+                            imageName: "question",
                             colorsGradient: Gradients.blueGradient
                         )
                     }

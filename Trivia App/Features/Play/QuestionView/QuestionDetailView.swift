@@ -74,7 +74,7 @@ struct QuestionDetailView: View {
             } label: {
                 MainButton(
                     text: "Next",
-                    background: viewModel.answerSelected ? Color("AccentColor"): .gray
+                    background: viewModel.answerSelected ? .pink: .gray
                 )
             }
             .disabled(!viewModel.answerSelected)

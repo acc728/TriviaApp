@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Gradients {
+class Gradients {
     
     static let redGradient = [Color(hex: 0xFF4470),
                        Color(hex: 0xF4698A),
