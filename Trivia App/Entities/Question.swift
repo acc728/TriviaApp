@@ -8,7 +8,8 @@
 import Foundation
 
 struct Question: Codable, Identifiable {
-    var id = UUID()
+    //var id = UUID()
+    let id: String
     let category: String
     let type: String
     let difficulty: String
@@ -37,14 +38,15 @@ struct Question: Codable, Identifiable {
         }
     }
 
-    enum CodingKeys: String, CodingKey {
-        case category, type, difficulty, question
+    /*enum CodingKeys: String, CodingKey {
+        case id, category, type, difficulty, question
         case correctAnswer = "correct_answer"
         case incorrectAnswers = "incorrect_answers"
-    }
+    }*/
     
     static var example: Question {
         .init(
+            id: UUID().uuidString,
             category: "Science: Mathematics",
             type: "multiple",
             difficulty: "medium",
