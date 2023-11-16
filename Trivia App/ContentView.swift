@@ -17,7 +17,7 @@ struct ContentView: View {
                     Label("contentView.playTab".localized(), systemImage: "gamecontroller.fill")
                 }
             
-            Text("Favorites")
+            coordinator.makeStatsView()
                 .tabItem {
                     Label("contentView.statsTab", systemImage: "person.text.rectangle.fill")
                 }
