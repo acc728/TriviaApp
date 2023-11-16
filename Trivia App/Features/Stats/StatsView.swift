@@ -16,7 +16,11 @@ struct StatsView: View {
             gradient: Gradients.redGradient
         )
         
-        //Card with best streak info
+        StreakCardView(
+            imageName: "trophy",
+            colorsGradient: Gradients.blueGradient,
+            streak: 54)
+        .padding()
         
         //ForEach or Manual List with recents results in quiz mode (Use progressView?)
     }
