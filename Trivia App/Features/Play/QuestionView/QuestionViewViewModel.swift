@@ -14,7 +14,7 @@ class QuestionViewViewModel: ObservableObject {
     @Published private(set) var answerSelected = false
     @Published private(set) var questionText: AttributedString = ""
     @Published private(set) var answerChoices: [Answer] = []
-    @Published private(set) var streak = 0
+    @Published private(set) var streak: Int = 0
     @Published private(set) var failed = false
     @Published private(set) var reachedEnd = false
     
@@ -50,5 +50,13 @@ class QuestionViewViewModel: ObservableObject {
         } else {
             failed = true
         }
+    }
+    
+    func saveStreak() {
+        questionRepository.saveStreak(streak: self.streak)
+    }
+    
+    func getStreak() -> Int {
+        return questionRepository.getStreak()
     }
 }

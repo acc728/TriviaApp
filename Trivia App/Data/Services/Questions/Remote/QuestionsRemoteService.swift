@@ -7,6 +7,5 @@
 
 protocol QuestionsRemoteService {
     func getQuestion() async throws -> Question
-    
     func getQuiz() async throws -> [Question]
 }

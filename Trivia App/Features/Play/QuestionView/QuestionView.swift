@@ -48,13 +48,19 @@ struct QuestionView: View {
                             )
                         )
                 }
-                
+                                
                 NavigationLink {
                     coordinator.makeModeSelectorView()
                 } label: {
                     MainButton(text: "Return to Menu", background: .pink)
                 }
                 .navigationBarBackButtonHidden(true)
+                .onAppear {
+                    let bestStreakLocal = viewModel.getStreak()
+                    if viewModel.streak > bestStreakLocal {
+                        viewModel.saveStreak()
+                    }
+                }
             }
         } else {
             coordinator.makeQuestionDetailView()

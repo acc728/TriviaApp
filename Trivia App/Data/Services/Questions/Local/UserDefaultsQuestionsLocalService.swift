@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct UserDefaultsQuestionsLocalService: QuestionLocalService {
+struct UserDefaultsQuestionsLocalService: QuestionsLocalService {
     private let streakKey = "streak"
     
-    func getStreak() throws -> Int {
+    func getStreak() -> Int {
         return UserDefaults.standard.integer(forKey: streakKey)
     }
     
-    func save(streak: Int) throws {
+    func save(streak: Int) {
         UserDefaults.standard.set(streak, forKey: streakKey)
     }
 }

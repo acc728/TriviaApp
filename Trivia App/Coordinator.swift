@@ -14,7 +14,9 @@ class Coordinator: ObservableObject {
         let networkClient = URLSessionNetworkClient()
 
         let questionsRemoteService: QuestionsRemoteService = mock ? MockQuestionsRemoteService() : LiveQuestionsRemoteService(networkClient: networkClient)
-        questionsRepository = QuestionsRepository(remoteService: questionsRemoteService)
+        let questionsLocalService: QuestionsLocalService = UserDefaultsQuestionsLocalService()
+        
+        questionsRepository = QuestionsRepository(remoteService: questionsRemoteService, localService: questionsLocalService)
     }
     
     // MARK: - ModeSelectorView
@@ -22,9 +24,9 @@ class Coordinator: ObservableObject {
         ModeSelectorView(quizViewModel: makeQuizViewModel(), questionViewModel: makeQuestionViewModel())
     }
     
+
     
-    
-    // MARK: - QuestionDetailView
+    // MARK: - QuestionView
     func makeQuestionView() -> QuestionView {
         QuestionView()
     }
@@ -41,7 +43,7 @@ class Coordinator: ObservableObject {
     
     
     
-    // MARK: - QuizDetailView
+    // MARK: - QuizView
     func makeQuizView() -> QuizView {
         QuizView()
     }

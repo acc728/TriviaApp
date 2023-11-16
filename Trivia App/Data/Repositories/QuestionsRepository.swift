@@ -9,10 +9,11 @@ import Foundation
 
 struct QuestionsRepository {
     private let remoteService: QuestionsRemoteService
-    //TODO: private let localService: QuestionsLocalService
+    private let localService: QuestionsLocalService
     
-    init(remoteService: QuestionsRemoteService) {
+    init(remoteService: QuestionsRemoteService, localService: QuestionsLocalService) {
         self.remoteService = remoteService
+        self.localService = localService
     }
     
     func getQuestion() async throws -> Question {
@@ -21,5 +22,13 @@ struct QuestionsRepository {
     
     func getQuiz() async throws -> [Question] {
         return try await remoteService.getQuiz()
+    }
+    
+    func getStreak() -> Int {
+        return localService.getStreak()
+    }
+    
+    func saveStreak(streak: Int) {
+        localService.save(streak: streak)
     }
 }
