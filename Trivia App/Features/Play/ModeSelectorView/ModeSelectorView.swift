@@ -20,28 +20,11 @@ struct ModeSelectorView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .center, spacing: 20) {
-                VStack(spacing: 10) {
-                    HStack {
-                        Text("Quiz Trivia App")
-                            .foregroundStyle(
-                                LinearGradient(
-                                    gradient: Gradient(colors: Gradients.redGradient),
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing))
-                            .font(.largeTitle)
-                            .bold()
-                        Spacer()
-                    }
-                    .padding(.top)
-                    
-                    HStack {
-                        Text("Challenge your knowledge and have fun with different gamemodes!")
-                            .font(.title3)
-                            .fontWeight(.light)
-                        Spacer()
-                    }
-                }
-                .padding(.horizontal)
+                HeaderView(
+                    title: "Quiz Trivia App",
+                    message: "Challenge your knowledge and have fun with different gamemodes!",
+                    gradient: Gradients.redGradient
+                )
                 
                 VStack(spacing: 40){
                     NavigationLink {

@@ -9,9 +9,16 @@ import SwiftUI
 
 struct StatsView: View {
     
-    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HeaderView(
+            title: "Quiz Trivia App",
+            message: "See your results in recents quizzes and best streak!",
+            gradient: Gradients.redGradient
+        )
+        
+        //Card with best streak info
+        
+        //ForEach or Manual List with recents results in quiz mode (Use progressView?)
     }
 }
 
