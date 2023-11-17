@@ -72,4 +72,11 @@ class QuizViewViewModel: ObservableObject {
         }
     }
     
+    func saveQuizHistory() {
+        do {
+            try questionRepository.saveQuizHistory(quizHistory: [score])
+        } catch {
+            showErrorMessage = true
+        }
+    }
 }

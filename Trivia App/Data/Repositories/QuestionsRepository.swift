@@ -31,4 +31,16 @@ struct QuestionsRepository {
     func saveStreak(streak: Int) {
         localService.save(streak: streak)
     }
+    
+    func getQuizHistory() -> [Int] {
+        do {
+            return try localService.getQuizHistory()
+        } catch {
+            return []
+        }
+    }
+    
+    func saveQuizHistory(quizHistory: [Int]) throws {
+        try localService.saveQuizHistory(quizHistory: quizHistory)
+    }
 }

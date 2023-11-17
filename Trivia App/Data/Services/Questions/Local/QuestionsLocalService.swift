@@ -8,4 +8,6 @@
 protocol QuestionsLocalService {
     func getStreak() -> Int
     func save(streak: Int)
+    func getQuizHistory() throws -> [Int]
+    func saveQuizHistory(quizHistory: [Int]) throws
 }

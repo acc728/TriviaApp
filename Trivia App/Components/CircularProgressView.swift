@@ -11,13 +11,14 @@ struct CircularProgressView: View {
     let progress: Double
     let color: Color
     let gradient: [Color]
+    let lineWidth: CGFloat
     
     var body: some View {
         ZStack {
             Circle()
                 .stroke(
                     color.opacity(0.3),
-                    lineWidth: 40
+                    lineWidth: lineWidth
                 )
             Circle()
                 .trim(from: 0, to: progress)
@@ -27,7 +28,7 @@ struct CircularProgressView: View {
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing),
                     style: StrokeStyle(
-                        lineWidth: 40,
+                        lineWidth: lineWidth,
                         lineCap: .round
                     )
                 )
@@ -35,10 +36,9 @@ struct CircularProgressView: View {
                 .animation(.easeOut, value: progress)
 
         }
-        .padding()
     }
 }
 
 #Preview {
-    CircularProgressView(progress: 0.9, color: .pink, gradient: Gradients.redGradient)
+    CircularProgressView(progress: 0.9, color: .pink, gradient: Gradients.redGradient, lineWidth: 20)
 }
