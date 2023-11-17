@@ -45,7 +45,7 @@ struct StatsView: View {
                                 }
                             }
                         }
-                    }.padding()
+                    }.padding(10)
                 } else {
                     HStack {
                         Spacer()
