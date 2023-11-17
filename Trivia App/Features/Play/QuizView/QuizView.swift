@@ -40,6 +40,9 @@ struct QuizView: View {
                         text: "Return to Menu")
                 }
                 .navigationBarBackButtonHidden(true)
+                .onAppear {
+                    viewModel.saveQuizHistory()
+                }
             }
         } else {
             coordinator.makeQuizDetailView()

@@ -65,7 +65,13 @@ class Coordinator: ObservableObject {
     
     // MARK: - StatsView
     func makeStatsView() -> StatsView {
-        StatsView()
+        StatsView(viewModel: makeStatsViewModel())
     }
+    
+    // MARK: - StatsViewModel
+    func makeStatsViewModel() -> StatsViewViewModel {
+        .init(repository: questionsRepository)
+    }
+
     
 }

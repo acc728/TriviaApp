@@ -74,9 +74,15 @@ class QuizViewViewModel: ObservableObject {
     
     func saveQuizHistory() {
         do {
+            var quizHistory = getQuizHistory()
+            quizHistory.insert(score, at: 0)
             try questionRepository.saveQuizHistory(quizHistory: [score])
         } catch {
             showErrorMessage = true
         }
+    }
+    
+    func getQuizHistory() -> [Int] {
+        return questionRepository.getQuizHistory()
     }
 }

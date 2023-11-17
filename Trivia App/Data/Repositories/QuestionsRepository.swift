@@ -16,6 +16,7 @@ struct QuestionsRepository {
         self.localService = localService
     }
     
+    // MARK: - Remote
     func getQuestion() async throws -> Question {
         return try await remoteService.getQuestion()
     }
@@ -24,6 +25,8 @@ struct QuestionsRepository {
         return try await remoteService.getQuiz()
     }
     
+    
+    // MARK: - Local
     func getStreak() -> Int {
         return localService.getStreak()
     }

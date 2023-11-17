@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct StatsView: View {
+    @StateObject private var viewModel: StatsViewViewModel
+    
+    init(viewModel: StatsViewViewModel) {
+        _viewModel =  StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         VStack {
@@ -20,7 +25,7 @@ struct StatsView: View {
             StreakCardView(
                 imageName: "trophy",
                 colorsGradient: Gradients.blueGradient,
-                streak: 54)
+                streak: viewModel.streak)
             .padding()
             
             VStack(alignment: .leading) {
@@ -30,17 +35,49 @@ struct StatsView: View {
                 
                 Divider()
                 
-                VStack(alignment: .center, spacing: 30) {
-                    QuizHistoryRow(numCorrects: 7)
-                    QuizHistoryRow(numCorrects: 4)
-                    QuizHistoryRow(numCorrects: 6)
-                }.padding()
+                if !viewModel.quizHistory.isEmpty {
+                    VStack(alignment: .center, spacing: 30) {
+                        ScrollView {
+                            ForEach(viewModel.quizHistory.indices, id: \.self) { index in
+                                if index <= 3 {
+                                    QuizHistoryRow(numCorrects: viewModel.quizHistory[index])
+                                }
+                            }
+                        }
+                    }.padding()
+                } else {
+                    HStack {
+                        Spacer()
+                        Text("Couldn't find any quiz history")
+                            .font(.title2)
+                            .fontWeight(.light)
+                            .padding(.vertical)
+                        
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Image("question")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: 130)
+                        Spacer()
+                    }
+                }
+                
+                Spacer()
             }
             .padding()
+            
+        }
+        .onAppear {
+            viewModel.getStreak()
+            viewModel.getQuizHistory()
         }
     }
 }
 
 #Preview {
-    StatsView()
+    let coordinator = Coordinator(mock: true)
+    return coordinator.makeStatsView()
 }
