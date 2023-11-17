@@ -10,6 +10,7 @@ import Foundation
 struct UserDefaultsQuestionsLocalService: QuestionsLocalService {
     private let streakKey = "streak"
     private let quizHistoryKey = "quizHistory"
+    private let maxLengthQuizHistory = 10
     
     func getStreak() -> Int {
         return UserDefaults.standard.integer(forKey: streakKey)
@@ -27,7 +28,13 @@ struct UserDefaultsQuestionsLocalService: QuestionsLocalService {
     }
     
     func saveQuizHistory(quizHistory: [Int]) throws {
-        let data = try JSONEncoder().encode(quizHistory)
+        var quizHistoryClear = quizHistory
+
+        if quizHistory.count > maxLengthQuizHistory {
+            quizHistoryClear.removeSubrange(10...(quizHistory.count - 1))
+        }
+
+        let data = try JSONEncoder().encode(quizHistoryClear)
         UserDefaults.standard.set(data, forKey: quizHistoryKey)
     }
 

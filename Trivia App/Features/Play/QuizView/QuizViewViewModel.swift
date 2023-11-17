@@ -76,7 +76,7 @@ class QuizViewViewModel: ObservableObject {
         do {
             var quizHistory = getQuizHistory()
             quizHistory.insert(score, at: 0)
-            try questionRepository.saveQuizHistory(quizHistory: [score])
+            try questionRepository.saveQuizHistory(quizHistory: quizHistory)
         } catch {
             showErrorMessage = true
         }

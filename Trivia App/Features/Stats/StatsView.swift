@@ -42,7 +42,7 @@ struct StatsView: View {
                                 if index <= 3 {
                                     QuizHistoryRow(numCorrects: viewModel.quizHistory[index])
                                 }
-                            }
+                            }.padding(.vertical)
                         }
                     }.padding()
                 } else {
