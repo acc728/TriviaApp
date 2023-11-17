@@ -19,6 +19,7 @@ struct QuizHistoryRow: View {
     var body: some View {
         HStack(spacing: 20) {
             Spacer()
+            
             CircularProgressView(
                 progress: Double(numCorrects) / Double(numQuestions),
                 color: .blue,
@@ -26,11 +27,12 @@ struct QuizHistoryRow: View {
                 lineWidth: 15
             )
             .frame(width: 70)
-            .padding(.trailing)
+            .padding(.trailing, 10)
             
             Text("You got \(numCorrects) out of \(numQuestions)")
                 .fontWeight(.light)
                 .font(.title3)
+                .frame(maxWidth: 200)
             
             Spacer()
         }
@@ -38,8 +40,23 @@ struct QuizHistoryRow: View {
 }
 
 #Preview {
-    QuizHistoryRow(
-        numCorrects: 7,
-        numQuestions: 10
-    )
+    VStack(spacing: 20) {
+        QuizHistoryRow(
+            numCorrects: 10,
+            numQuestions: 10
+        )
+        QuizHistoryRow(
+            numCorrects: 7,
+            numQuestions: 10
+        )
+        QuizHistoryRow(
+            numCorrects: 1,
+            numQuestions: 10
+        )
+        
+        QuizHistoryRow(
+            numCorrects: 4,
+            numQuestions: 10
+        )
+    }
 }

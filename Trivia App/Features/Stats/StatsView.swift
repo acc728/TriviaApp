@@ -41,8 +41,9 @@ struct StatsView: View {
                             ForEach(viewModel.quizHistory.indices, id: \.self) { index in
                                 if index <= 3 {
                                     QuizHistoryRow(numCorrects: viewModel.quizHistory[index])
+                                        .padding(.vertical)
                                 }
-                            }.padding(.vertical)
+                            }
                         }
                     }.padding()
                 } else {
