@@ -39,7 +39,7 @@ struct StatsView: View {
                     VStack(alignment: .center, spacing: 30) {
                         ScrollView {
                             ForEach(viewModel.quizHistory.indices, id: \.self) { index in
-                                if index <= 3 {
+                                if index <= viewModel.quizHistory.count {
                                     QuizHistoryRow(numCorrects: viewModel.quizHistory[index])
                                         .padding(.vertical)
                                 }

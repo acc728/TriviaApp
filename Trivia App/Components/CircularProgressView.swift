@@ -40,5 +40,5 @@ struct CircularProgressView: View {
 }
 
 #Preview {
-    CircularProgressView(progress: 0.9, color: .pink, gradient: Gradients.redGradient, lineWidth: 20)
+    CircularProgressView(progress: 0.8, color: .pink, gradient: Gradients.redGradient, lineWidth: 20)
 }
