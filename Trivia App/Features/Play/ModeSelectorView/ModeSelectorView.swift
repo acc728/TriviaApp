@@ -21,8 +21,8 @@ struct ModeSelectorView: View {
         NavigationStack {
             VStack(alignment: .center, spacing: 20) {
                 HeaderView(
-                    title: "Quiz Trivia App",
-                    message: "Challenge your knowledge and have fun with different gamemodes!",
+                    title: "modeSelectorView.title".localized(),
+                    message: "modeSelectorView.message".localized(),
                     gradient: Gradients.redGradient
                 )
                 

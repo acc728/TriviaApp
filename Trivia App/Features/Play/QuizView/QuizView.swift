@@ -21,7 +21,7 @@ struct QuizView: View {
                 
                 
                 VStack(spacing: 20) {
-                    Text("Quiz Trivia App")
+                    Text("quizView.title")
                         .font(.title)
                         .bold()
                         .padding(.top, 20)
@@ -35,7 +35,7 @@ struct QuizView: View {
                     Spacer()
                     
                     VStack(spacing: 20) {
-                        Text("Congratulations, quiz completed!")
+                        Text("quizView.message".localized())
                         
                         Text("You scored \(viewModel.score) out of \(viewModel.length)")
                             .bold()
@@ -44,7 +44,7 @@ struct QuizView: View {
                             coordinator.makeModeSelectorView()
                         } label: {
                             MainButton(
-                                text: "Return to Menu")
+                                text: "mainButton.returnMenu".localized())
                         }
                         .navigationBarBackButtonHidden(true)
                         .onAppear {

@@ -20,7 +20,7 @@ struct StreakCardView: View {
                 
                 Text("Survival Mode!")
                     .bold()
-                    .font(.title)
+                    .font(.title2)
                     .foregroundStyle(.white)
                 
                 Spacer()

@@ -10,12 +10,11 @@ import SwiftUI
 struct QuizDetailView: View {
     @EnvironmentObject private var viewModel: QuizViewViewModel
     @EnvironmentObject var coordinator: Coordinator
-    //@State var closeQuizAlert: Bool = false
     
     var body: some View {
         VStack(spacing: 20) {
             HStack {
-                Text("questionView.title".localized())
+                Text("quizDetailView.title".localized())
                     .font(.title)
                     .fontWeight(.heavy)
                     .foregroundStyle(
@@ -30,19 +29,13 @@ struct QuizDetailView: View {
                     coordinator.makeModeSelectorView()
                 } label: {
                     HStack {
-                        Text("Close Quiz")
+                        Text("quizDetailView.close".localized())
                             .foregroundStyle(.red)
                             .bold()
                         Image(systemName: "x.circle.fill")
                             .foregroundColor(.red)
                     }
                 }
-                
-                /*Button {
-                    closeQuizAlert = true
-                } label: {
-                    Image(systemName: "x.circle.fill")
-                }*/
             }
             
             ProgressBar(progress: viewModel.progress)
@@ -71,7 +64,7 @@ struct QuizDetailView: View {
                 viewModel.goNextQuestion()
             } label: {
                 MainButton(
-                    text: "Next",
+                    text: "mainButton.next".localized(),
                     background: viewModel.answerSelected ? Color("AccentColor"): .gray
                 )
             }
@@ -82,19 +75,6 @@ struct QuizDetailView: View {
         }
         .navigationBarBackButtonHidden(true)
         .padding()
-        /*.alert(isPresented: $closeQuizAlert) {
-            Alert(
-                title: Text("Would like to close the quiz?"),
-                message: Text("You will lost all the progress"),
-                primaryButton: .destructive(Text("Exit")) {
-                    
-                },
-                secondaryButton: .cancel() {
-                    closeQuizAlert = false
-                }
-
-            )
-        }*/
     }
 }
 

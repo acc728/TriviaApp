@@ -14,7 +14,7 @@ struct QuestionDetailView: View {
     var body: some View {
         VStack(spacing: 20) {
             HStack {
-                Text("questionView.title".localized())
+                Text("questionDetailView.title".localized())
                     .font(.title)
                     .fontWeight(.heavy)
                     .foregroundStyle(
@@ -28,7 +28,7 @@ struct QuestionDetailView: View {
                     coordinator.makeModeSelectorView()
                 } label: {
                     HStack {
-                        Text("Close Quiz")
+                        Text("questionDetailView.close".localized())
                             .foregroundStyle(.red)
                             .bold()
                         Image(systemName: "x.circle.fill")

@@ -20,7 +20,7 @@ struct QuestionView: View {
                 }.padding(.bottom, 300)
                 
                 VStack(spacing: 20) {
-                    Text("Quiz Trivia App")
+                    Text("questionView.title".localized())
                         .font(.title)
                         .bold()
                         .padding(.top, 20)
@@ -35,7 +35,7 @@ struct QuestionView: View {
                     Spacer()
                     
                     VStack {
-                        Text("Oops you lost your streak. Keep trying!")
+                        Text("questionDetailView.message".localized())
                         
                         HStack {
                             Text("You got a streak of \(viewModel.streak)")
@@ -58,7 +58,7 @@ struct QuestionView: View {
                         NavigationLink {
                             coordinator.makeModeSelectorView()
                         } label: {
-                            MainButton(text: "Return to Menu", background: .pink)
+                            MainButton(text: "mainButton.returnMenu".localized(), background: .pink)
                         }
                         .navigationBarBackButtonHidden(true)
                         .onAppear {

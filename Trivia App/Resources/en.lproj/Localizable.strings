@@ -6,13 +6,34 @@
   
 */
 
+//MARK: - ModeSelectorView
+"modeSelectorView.title" = "Quiz Trivia App";
+"modeSelectorView.message" = "Challenge your knowledge and have fun with different gamemodes!";
+
 // MARK: - ContentView
 "contentView.playTab" = "Play";
 "contentView.statsTab" = "Stats";
 
 // MARK: - QuestionView
-"questionView.title" = "Quiz Trivia";
+"questionView.title" = "Quiz Trivia App";
+"questionDetailView.title" = "Quiz Trivia";
+
+// MARK: - QuestionDetailView
+"questionDetailView.message" = "Oops you lost your streak. Keep trying!";
+"questionDetailView.close" = "Exit game";
+
+// MARK: - QuizView
+"quizView.title" = "Quiz Trivia App";
+"quizView.message" = "Congratulations, quiz completed!";
+
+// MARK: - QuizDetailView
+"quizDetailView.title" = "Quiz Trivia";
+"quizDetailView.close" = "Close quiz";
 
 // MARK: - QuestionErrorMessage
 "question.formattingErrorMessage" = "Error formatting question: ";
 "question.answersErrorMessage" = "Error formatting answers: ";
+
+//MARK: - MainButton
+"mainButton.returnMenu" = "Return to Menu";
+"mainButton.next" = "Next";
