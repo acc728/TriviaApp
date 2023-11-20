@@ -24,7 +24,7 @@ struct StatsView: View {
             
             StreakCardView(
                 imageName: "trophy",
-                colorsGradient: Gradients.blueGradient,
+                colorsGradient: Gradients.redGradient,
                 streak: viewModel.streak)
             .padding()
             

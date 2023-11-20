@@ -29,7 +29,7 @@ struct QuizHistoryRow: View {
             .frame(width: 70)
             .padding(.trailing, 10)
             
-            Text("You got \(numCorrects) out of \(numQuestions)")
+            Text("You got **\(numCorrects)** out of **\(numQuestions)**")
                 .fontWeight(.light)
                 .font(.title3)
                 .frame(maxWidth: 200)

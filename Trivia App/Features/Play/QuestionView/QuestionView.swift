@@ -13,33 +13,17 @@ struct QuestionView: View {
     
     var body: some View {
         if viewModel.reachedEnd {
-            VStack(spacing: 20) {
-                Text("Quiz Trivia App")
-                    .font(.title)
-                    .bold()
-                    .foregroundStyle(
-                        LinearGradient(
-                            gradient: Gradient(colors: Gradients.redGradient),
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
+            ZStack {
+                VStack {
+                    LottieView(loopMode: .loop, animationName: "congratulations")
+                    Spacer()
+                }.padding(.bottom, 300)
                 
-                Image("trophy")
-                    .resizable()
-                    .scaledToFit()
-                
-                Text("Oops you lost your streak. Dont worry and try it again!")
-                
-                HStack {
-                    Text("You have a streak of \(viewModel.streak)")
-                        .font(.title3)
-                        .fontWeight(.light)
+                VStack(spacing: 20) {
+                    Text("Quiz Trivia App")
+                        .font(.title)
                         .bold()
-                    
-                    Image(systemName: "flame.fill")
-                        .resizable()
-                        .frame(width: 25,height: 30)
+                        .padding(.top, 20)
                         .foregroundStyle(
                             LinearGradient(
                                 gradient: Gradient(colors: Gradients.redGradient),
@@ -47,19 +31,46 @@ struct QuestionView: View {
                                 endPoint: .bottomTrailing
                             )
                         )
-                }
-                                
-                NavigationLink {
-                    coordinator.makeModeSelectorView()
-                } label: {
-                    MainButton(text: "Return to Menu", background: .pink)
-                }
-                .navigationBarBackButtonHidden(true)
-                .onAppear {
-                    let bestStreakLocal = viewModel.getStreak()
-                    if viewModel.streak > bestStreakLocal {
-                        viewModel.saveStreak()
-                    }
+                    
+                    Spacer()
+                    
+                    VStack {
+                        Text("Oops you lost your streak. Keep trying!")
+                        
+                        HStack {
+                            Text("You got a streak of \(viewModel.streak)")
+                                .font(.title3)
+                                .fontWeight(.light)
+                                .bold()
+                            
+                            Image(systemName: "flame.fill")
+                                .resizable()
+                                .frame(width: 25,height: 30)
+                                .foregroundStyle(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: Gradients.redGradient),
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                        }
+                        
+                        NavigationLink {
+                            coordinator.makeModeSelectorView()
+                        } label: {
+                            MainButton(text: "Return to Menu", background: .pink)
+                        }
+                        .navigationBarBackButtonHidden(true)
+                        .onAppear {
+                            let bestStreakLocal = viewModel.getStreak()
+                            if viewModel.streak > bestStreakLocal {
+                                viewModel.saveStreak()
+                            }
+                        }
+                    }.padding(.top, 150)
+                    
+                    
+                    Spacer()
                 }
             }
         } else {

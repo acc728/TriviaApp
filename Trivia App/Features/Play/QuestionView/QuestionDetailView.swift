@@ -59,6 +59,7 @@ struct QuestionDetailView: View {
                 Text(viewModel.questionText)
                     .font(.title)
                     .bold()
+                    .lineLimit(3, reservesSpace: true)
                 
                 ForEach(viewModel.answerChoices) { answer in
                     QuestionRowAnswer(answer: answer)
