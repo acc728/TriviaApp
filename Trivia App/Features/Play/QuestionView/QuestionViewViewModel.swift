@@ -22,7 +22,7 @@ class QuestionViewViewModel: ObservableObject {
         self.questionRepository = questionRepository
         Task {
             await self.getQuestion()
-            self.setQuestion()
+            await self.setQuestion()
         }
     }
     
@@ -44,6 +44,7 @@ class QuestionViewViewModel: ObservableObject {
         }
     }
     
+    @MainActor
     func setQuestion() {
         questionText = question.formattedQuestion
         answerChoices = question.answers

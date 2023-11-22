@@ -46,13 +46,13 @@ struct QuizDetailView: View {
                     .font(.title3)
                     .fontWeight(.light)
             }
-            .padding(.bottom)
+            .padding(.bottom, 10)
             
             VStack(alignment: .center, spacing: 20) {
                 Text(viewModel.question)
                     .font(.title)
                     .bold()
-                    .lineLimit(3, reservesSpace: true)
+                    .lineLimit(5, reservesSpace: false)
                 
                 ForEach(viewModel.answerChoices) { answer in
                     QuizRowAnswer(answer: answer)
@@ -82,7 +82,7 @@ struct QuizDetailView: View {
             Spacer()
             
         }
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(false)
         .padding()
     }
 }

@@ -16,16 +16,20 @@ struct SplashScreenView: View {
     var body: some View {
         if isActive {
             ContentView()
+                .environmentObject(coordinator)
         } else {
             ZStack {
-                Color.white
+                Color("system")
                     .ignoresSafeArea()
                 
                 VStack {
+                    Spacer()
+                    
                     VStack {
-                        Image(systemName: "questionmark")
+                        Image("triviaLogo")
                             .resizable()
-                            .frame(width: 50, height: 80)
+                            .scaledToFit()
+                            .frame(height: 200)
                             .foregroundStyle(
                                 LinearGradient(
                                     colors: Gradients.redGradient,
@@ -48,19 +52,21 @@ struct SplashScreenView: View {
                     .onAppear {
                         withAnimation(.easeInOut(duration: 1.2)) {
                             self.opacity = 1.0
-                            self.size = 1
+                            self.size = 1.0
                         }
                     }
-                }.onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                        withAnimation {
-                            self.isActive = true
+                    Spacer()
+                    ProgressView()
+                }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                       withAnimation {
+                            //self.isActive = true
                         }
                     }
                 }
             }
         }
-        
     }
 }
 
