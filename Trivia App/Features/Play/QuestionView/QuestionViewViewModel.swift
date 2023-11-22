@@ -22,6 +22,7 @@ class QuestionViewViewModel: ObservableObject {
         self.questionRepository = questionRepository
         Task {
             await self.getQuestion()
+            self.setQuestion()
         }
     }
     
@@ -30,10 +31,10 @@ class QuestionViewViewModel: ObservableObject {
         do {
             if !failed {
                 question = try await questionRepository.getQuestion()
-                questionText = question.formattedQuestion
+                /*questionText = question.formattedQuestion
                 answerChoices = question.answers
                 answerSelected = false
-                reachedEnd = false
+                reachedEnd = false*/
             } else {
                 reachedEnd = true
             }
@@ -41,6 +42,13 @@ class QuestionViewViewModel: ObservableObject {
         } catch {
             showErrorMessage = true
         }
+    }
+    
+    func setQuestion() {
+        questionText = question.formattedQuestion
+        answerChoices = question.answers
+        answerSelected = false
+        reachedEnd = false
     }
     
     func selectAnswer(answer: Answer) {

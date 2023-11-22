@@ -58,10 +58,19 @@ struct QuizDetailView: View {
                     QuizRowAnswer(answer: answer)
                         .environmentObject(viewModel)
                 }
+                .transition(
+                    .asymmetric(
+                        insertion: .move(edge: .trailing),
+                        removal: .move(edge: .leading)
+                    ).combined(with: .opacity)
+                )
             }
             
+            
             Button {
-                viewModel.goNextQuestion()
+                withAnimation {
+                    viewModel.goNextQuestion()
+                }
             } label: {
                 MainButton(
                     text: "mainButton.next".localized(),

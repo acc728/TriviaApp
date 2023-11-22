@@ -54,7 +54,6 @@ struct QuestionDetailView: View {
                     )
             }
             
-            
             VStack(alignment: .center, spacing: 20) {
                 Text(viewModel.questionText)
                     .font(.title)
@@ -64,13 +63,21 @@ struct QuestionDetailView: View {
                 ForEach(viewModel.answerChoices) { answer in
                     QuestionRowAnswer(answer: answer)
                         .environmentObject(viewModel)
-                }
+                }.transition(
+                    .asymmetric(
+                        insertion: .move(edge: .trailing),
+                        removal: .move(edge: .leading)
+                    ).combined(with: .opacity)
+                )
             }
             .padding(.top)
             
             Button {
                 Task {
                     await viewModel.getQuestion()
+                }
+                withAnimation {
+                    viewModel.setQuestion()
                 }
             } label: {
                 MainButton(
@@ -81,10 +88,10 @@ struct QuestionDetailView: View {
             .disabled(!viewModel.answerSelected)
             
             Spacer()
-            
         }
         .navigationBarBackButtonHidden(true)
         .padding()
+        //.animation(.easeInOut, value: viewModel.answerChoices)
     }
 }
 

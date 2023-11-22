@@ -13,7 +13,7 @@ struct Trivia_AppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreenView()
                 .environmentObject(coordinator)
         }
     }
