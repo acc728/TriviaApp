@@ -10,6 +10,13 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var coordinator: Coordinator
     
+    init() {
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().isTranslucent = true
+        UITabBar.appearance().backgroundColor = UIColor(Color("mainColor"))
+    }
+    
     var body: some View {
         TabView {
             coordinator.makeModeSelectorView()
@@ -27,13 +34,12 @@ struct ContentView: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing)
         )
-        
+    }
         /*.fullScreenCover(isPresented: $showOnboarding) {
          OnboardingTabView()
-         }*/ 
+         }*/
         
         // LANDING PAGE
-    }
 }
 
 

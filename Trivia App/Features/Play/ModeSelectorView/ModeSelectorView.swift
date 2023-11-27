@@ -53,10 +53,13 @@ struct ModeSelectorView: View {
                         )
                     }
                 }
-                .padding()
+                .padding(.horizontal)
+                .padding(.top)
+                
+                Spacer()
             }
+            .setBackgroundApp()
             .navigationBarBackButtonHidden(true)
-            Spacer()
         }
     }
 }

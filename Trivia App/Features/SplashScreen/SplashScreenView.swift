@@ -19,7 +19,7 @@ struct SplashScreenView: View {
                 .environmentObject(coordinator)
         } else {
             ZStack {
-                Color("system")
+                Color("mainColor")
                     .ignoresSafeArea()
                 
                 VStack {
@@ -61,7 +61,7 @@ struct SplashScreenView: View {
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                        withAnimation {
-                            //self.isActive = true
+                            self.isActive = true
                         }
                     }
                 }
