@@ -69,12 +69,12 @@ struct StatsView: View {
                 Spacer()
             }
             .padding()
-            
         }
         .onAppear {
             viewModel.getStreak()
             viewModel.getQuizHistory()
         }
+        .setBackgroundApp()
     }
 }
 

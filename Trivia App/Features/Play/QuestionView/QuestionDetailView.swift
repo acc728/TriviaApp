@@ -91,6 +91,7 @@ struct QuestionDetailView: View {
         }
         .navigationBarBackButtonHidden(true)
         .padding()
+        .setBackgroundApp()
         //.animation(.easeInOut, value: viewModel.answerChoices)
     }
 }

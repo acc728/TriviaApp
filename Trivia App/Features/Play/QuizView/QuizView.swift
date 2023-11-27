@@ -14,6 +14,9 @@ struct QuizView: View {
     var body: some View {
         if viewModel.reachedEnd {
             ZStack {
+                Color("mainColor")
+                    .ignoresSafeArea()
+                
                 VStack {
                     LottieView(loopMode: .loop, animationName: "congratulations")
                     Spacer()

@@ -32,7 +32,7 @@ struct QuestionRowAnswer: View {
         )
         .foregroundColor(.white)
         .cornerRadius(10)
-        .shadow(color: isSelected ? (answer.isCorrect ? Color("DarkGreen") : .red) : .gray, radius: 15, x: 0.5, y: 0.5)
+        .shadow(color: isSelected ? (answer.isCorrect ? Color("DarkGreen") : .red) : .darkGrey, radius: 5, x: 0.5, y: 0.5)
         .onTapGesture {
             if !viewModel.answerSelected {
                 isSelected = true

@@ -82,8 +82,9 @@ struct QuizDetailView: View {
             Spacer()
             
         }
-        .navigationBarBackButtonHidden(false)
+        .navigationBarBackButtonHidden(true)
         .padding()
+        .setBackgroundApp()
     }
 }
 

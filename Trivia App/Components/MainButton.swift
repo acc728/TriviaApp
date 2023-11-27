@@ -18,7 +18,7 @@ struct MainButton: View {
             .padding(.horizontal)
             .background(background)
             .cornerRadius(30)
-            .shadow(radius: 10)
+            .shadow(color: .darkGrey ,radius: 10)
             .bold()
     }
 }
