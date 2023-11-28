@@ -35,7 +35,7 @@ struct ContentView: View {
                 endPoint: .bottomTrailing)
         )
         .fullScreenCover(isPresented: Binding.constant(false)) {
-             OnboardingView()
+             OnboardingView() // Pasarle la variable para que la actualice cuando acaba
         }
     }
         

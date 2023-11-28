@@ -13,28 +13,33 @@ struct OnboardingView: View {
     
     var body: some View {
         ZStack {
-            switch(currentPage) {
-            case 1: ScreenView(
-                image: "trophy",
-                title: "Step 1",
-                detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
-                backgroundColor: Color("Cantaloupe")
-            ).transition(.scale)
-                
-            case 2: ScreenView(
-                image: "trophy",
-                title: "Step 2",
-                detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
-                backgroundColor: Color("DarkRed")
-            ).transition(.scale)
-                
-            default: ScreenView(
-                image: "trophy",
-                title: "Step 3",
-                detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
-                backgroundColor: Color("DarkGreen")
-            ).transition(.scale)
+            if(currentPage == 1) {
+                ScreenView(
+                    image: "trophy",
+                    title: "Step 1",
+                    detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
+                    backgroundColor: Color("Cantaloupe")
+                ).transition(.scale)
             }
+                
+            if(currentPage == 2) {
+                ScreenView(
+                    image: "trophy",
+                    title: "Step 2",
+                    detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
+                    backgroundColor: Color("DarkRed")
+                ).transition(.scale)
+            }
+            
+            if(currentPage == 3) {
+                ScreenView(
+                    image: "trophy",
+                    title: "Step 3",
+                    detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
+                    backgroundColor: Color("DarkGreen")
+                ).transition(.scale)
+            }
+
         }.overlay(
             Button(action: {
                 withAnimation(.easeInOut) {
@@ -42,6 +47,7 @@ struct OnboardingView: View {
                         currentPage += 1
                     } else {
                         currentPage = 1
+                        //Cambiar variable binding que muestra esta pantalla
                     }
                 }
             }, label: {
