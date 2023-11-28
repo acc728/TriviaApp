@@ -34,12 +34,11 @@ struct ContentView: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing)
         )
+        .fullScreenCover(isPresented: Binding.constant(false)) {
+             OnboardingView()
+        }
     }
-        /*.fullScreenCover(isPresented: $showOnboarding) {
-         OnboardingTabView()
-         }*/
         
-        // LANDING PAGE
 }
 
 
