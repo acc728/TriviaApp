@@ -9,6 +9,6 @@ import SwiftUI
 
 extension View {
     func setBackgroundApp() -> some View {
-        self.background(Color("mainColor"))
+        self.background(Color("MainColor"))
     }
 }

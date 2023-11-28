@@ -14,7 +14,7 @@ struct ContentView: View {
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().isTranslucent = true
-        UITabBar.appearance().backgroundColor = UIColor(Color("mainColor"))
+        UITabBar.appearance().backgroundColor = UIColor(Color("MainColor"))
     }
     
     var body: some View {

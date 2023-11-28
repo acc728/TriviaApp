@@ -14,7 +14,7 @@ struct QuizView: View {
     var body: some View {
         if viewModel.reachedEnd {
             ZStack {
-                Color("mainColor")
+                Color("MainColor")
                     .ignoresSafeArea()
                 
                 VStack {

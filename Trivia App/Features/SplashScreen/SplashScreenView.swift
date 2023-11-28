@@ -19,7 +19,7 @@ struct SplashScreenView: View {
                 .environmentObject(coordinator)
         } else {
             ZStack {
-                Color("mainColor")
+                Color("MainColor")
                     .ignoresSafeArea()
                 
                 VStack {
