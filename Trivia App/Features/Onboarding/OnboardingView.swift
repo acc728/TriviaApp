@@ -14,7 +14,7 @@ struct OnboardingView: View {
     var body: some View {
         ZStack {
             if(currentPage == 1) {
-                ScreenView(
+                OnboardingTabView(
                     image: "trophy",
                     title: "Step 1",
                     detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
@@ -23,7 +23,7 @@ struct OnboardingView: View {
             }
                 
             if(currentPage == 2) {
-                ScreenView(
+                OnboardingTabView(
                     image: "trophy",
                     title: "Step 2",
                     detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
@@ -32,7 +32,7 @@ struct OnboardingView: View {
             }
             
             if(currentPage == 3) {
-                ScreenView(
+                OnboardingTabView(
                     image: "trophy",
                     title: "Step 3",
                     detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
@@ -78,7 +78,7 @@ struct OnboardingView: View {
     OnboardingView()
 }
 
-struct ScreenView: View {
+struct OnboardingTabView: View {
     var image: String
     var title: String
     var detail: String
