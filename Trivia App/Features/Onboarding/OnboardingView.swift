@@ -10,6 +10,8 @@ import SwiftUI
 struct OnboardingView: View {
     @AppStorage("currentPage") var currentPage = 1
     var totalPages = 3
+    let transition = AnyTransition.asymmetric(insertion: .move(edge: .trailing), removal: .offset(x: -24))
+
     
     var body: some View {
         ZStack {
@@ -19,7 +21,7 @@ struct OnboardingView: View {
                     title: "Step 1",
                     detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
                     backgroundColor: Color("Cantaloupe")
-                ).transition(.scale)
+                ).transition(transition)
             }
                 
             if(currentPage == 2) {
@@ -28,7 +30,7 @@ struct OnboardingView: View {
                     title: "Step 2",
                     detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
                     backgroundColor: Color("DarkRed")
-                ).transition(.scale)
+                ).transition(transition)
             }
             
             if(currentPage == 3) {
@@ -37,12 +39,14 @@ struct OnboardingView: View {
                     title: "Step 3",
                     detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
                     backgroundColor: Color("DarkGreen")
-                ).transition(.scale)
+                ).transition(transition)
             }
 
-        }.overlay(
+        }
+        .animation(.easeInOut, value: currentPage)
+        .overlay(
             Button(action: {
-                withAnimation(.easeInOut) {
+                withAnimation {
                     if currentPage <= totalPages {
                         currentPage += 1
                     } else {
@@ -98,7 +102,7 @@ struct OnboardingTabView: View {
                     
                 }else {
                     Button {
-                        withAnimation(.easeInOut) {
+                        withAnimation {
                             currentPage -= 1
                         }
                     } label: {
@@ -114,7 +118,7 @@ struct OnboardingTabView: View {
                 Spacer()
                 
                 Button(action: {
-                    withAnimation(.easeInOut) {
+                    withAnimation {
                         currentPage = 4
                     }
                 }, label: {
