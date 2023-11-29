@@ -10,6 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
     @EnvironmentObject private var viewModel: OnboardingViewModel
     @Binding var showOnboarding: Bool
+    @Environment(\.colorScheme) var colorScheme
     
     @AppStorage("currentPage") var currentPage = 1
     var totalPages = 3
@@ -68,9 +69,9 @@ struct OnboardingView: View {
                     Image(systemName: "chevron.right")
                         .font(.title2)
                         .fontWeight(.semibold)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(colorScheme == .light ? .white : .black)
                         .frame(width: 50,height: 60)
-                        .background(.white)
+                        .background(colorScheme == .light ? .black : .white)
                         .clipShape(Circle())
                         .overlay(
                             ZStack {

@@ -24,8 +24,13 @@ struct OnboardingTabView: View {
                 if currentPage == 1 {
                     Text("onboardingTabView.welcome".localized())
                         .font(.title)
-                        .fontWeight(.semibold)
+                        .fontWeight(.bold)
                         .kerning(1.4)
+                        .foregroundStyle(
+                            LinearGradient(
+                                gradient: Gradient(colors: Gradients.redGradient),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing))
                     
                 }else {
                     Button {
@@ -53,6 +58,11 @@ struct OnboardingTabView: View {
                 }, label: {
                     Text("onboardingTabView.skip".localized())
                         .fontWeight(.semibold)
+                        .foregroundStyle(
+                            LinearGradient(
+                                gradient: Gradient(colors: Gradients.redGradient),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing))
                 })
             }.padding()
             
@@ -86,7 +96,6 @@ struct OnboardingTabView: View {
         showOnboarding: Binding.constant(false),
         image: "trophy",
         title: "Step 1",
-        detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
-        backgroundColor: Color("MainColor")
+        detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje"
     )
 }
