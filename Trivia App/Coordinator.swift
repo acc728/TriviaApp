@@ -9,6 +9,7 @@ import Foundation
 
 class Coordinator: ObservableObject {
     private let questionsRepository: QuestionsRepository
+    private let onboardingRepository: OnboardingRepository
     
     init(mock: Bool = false) {
         let networkClient = URLSessionNetworkClient()
@@ -16,7 +17,11 @@ class Coordinator: ObservableObject {
         let questionsRemoteService: QuestionsRemoteService = mock ? MockQuestionsRemoteService() : LiveQuestionsRemoteService(networkClient: networkClient)
         let questionsLocalService: QuestionsLocalService = UserDefaultsQuestionsLocalService()
         
+        let onboardingLocalService: OnboardingLocalService = UserDefaultsOnboardingLocalService()
+        
         questionsRepository = QuestionsRepository(remoteService: questionsRemoteService, localService: questionsLocalService)
+        onboardingRepository = OnboardingRepository(localService: onboardingLocalService)
+        
     }
     
     // MARK: - ModeSelectorView

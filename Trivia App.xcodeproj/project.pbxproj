@@ -21,6 +21,9 @@
 		7A4B00DB2B068B6B00E31462 /* QuizHistoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B00DA2B068B6B00E31462 /* QuizHistoryRow.swift */; };
 		7A5ACB2A2B0DE6F000E54466 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5ACB292B0DE6F000E54466 /* SplashScreenView.swift */; };
 		7A7BF1F62B0661CE003BB19F /* UserDefaultsQuestionsLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7BF1F52B0661CE003BB19F /* UserDefaultsQuestionsLocalService.swift */; };
+		7A947CD02B1731F3009A4499 /* OnboardingLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A947CCF2B1731F3009A4499 /* OnboardingLocalService.swift */; };
+		7A947CD22B17327B009A4499 /* OnboardingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A947CD12B17327B009A4499 /* OnboardingRepository.swift */; };
+		7A947CD42B173359009A4499 /* UserDefaultsOnboardingLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A947CD32B173359009A4499 /* UserDefaultsOnboardingLocalService.swift */; };
 		7A957E7D2B0B4BD2001A3F30 /* congratulations.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A957E7C2B0B4BD2001A3F30 /* congratulations.json */; };
 		7A966DC22B0380380000946D /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A966DC12B0380380000946D /* QuizView.swift */; };
 		7A966DC42B038BC20000946D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A966DC32B038BC20000946D /* CardView.swift */; };
@@ -68,6 +71,9 @@
 		7A4B00DA2B068B6B00E31462 /* QuizHistoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHistoryRow.swift; sourceTree = "<group>"; };
 		7A5ACB292B0DE6F000E54466 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		7A7BF1F52B0661CE003BB19F /* UserDefaultsQuestionsLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsQuestionsLocalService.swift; sourceTree = "<group>"; };
+		7A947CCF2B1731F3009A4499 /* OnboardingLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocalService.swift; sourceTree = "<group>"; };
+		7A947CD12B17327B009A4499 /* OnboardingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRepository.swift; sourceTree = "<group>"; };
+		7A947CD32B173359009A4499 /* UserDefaultsOnboardingLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsOnboardingLocalService.swift; sourceTree = "<group>"; };
 		7A957E7C2B0B4BD2001A3F30 /* congratulations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = congratulations.json; sourceTree = "<group>"; };
 		7A966DC12B0380380000946D /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		7A966DC32B038BC20000946D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -136,6 +142,23 @@
 			children = (
 				7AAF1B772B0664AF00FDFD65 /* QuestionsLocalService.swift */,
 				7A7BF1F52B0661CE003BB19F /* UserDefaultsQuestionsLocalService.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		7A947CCD2B1731DA009A4499 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				7A947CCE2B1731E1009A4499 /* Local */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		7A947CCE2B1731E1009A4499 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				7A947CCF2B1731F3009A4499 /* OnboardingLocalService.swift */,
+				7A947CD32B173359009A4499 /* UserDefaultsOnboardingLocalService.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -255,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				7AF17CCF2B026C2100761E37 /* QuestionsRepository.swift */,
+				7A947CD12B17327B009A4499 /* OnboardingRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -262,6 +286,7 @@
 		7ABE2DDA2B021B9200279C51 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7A947CCD2B1731DA009A4499 /* Onboarding */,
 				7AF17CD22B026C7900761E37 /* Questions */,
 			);
 			path = Services;
@@ -435,13 +460,16 @@
 				7ABE2DD12B02170A00279C51 /* StringExtensions.swift in Sources */,
 				7AF17CD62B026D3D00761E37 /* LiveQuestionsRemoteService.swift in Sources */,
 				7ABE2DB62B020BDC00279C51 /* ContentView.swift in Sources */,
+				7A947CD42B173359009A4499 /* UserDefaultsOnboardingLocalService.swift in Sources */,
 				7A7BF1F62B0661CE003BB19F /* UserDefaultsQuestionsLocalService.swift in Sources */,
 				7A0E7BE92B14870F00B995CB /* ViewExtensions.swift in Sources */,
 				7ABE2DB42B020BDC00279C51 /* Trivia_AppApp.swift in Sources */,
 				7A03EC792B03EE3F00B405F4 /* QuestionView.swift in Sources */,
 				7ABE2DC52B020DE100279C51 /* NetworkClientError.swift in Sources */,
+				7A947CD02B1731F3009A4499 /* OnboardingLocalService.swift in Sources */,
 				7A482A252B0684EE002C3716 /* CircularProgressView.swift in Sources */,
 				7A5ACB2A2B0DE6F000E54466 /* SplashScreenView.swift in Sources */,
+				7A947CD22B17327B009A4499 /* OnboardingRepository.swift in Sources */,
 				7A40C0F72B15D3BD00B7B31B /* OnboardingView.swift in Sources */,
 				7A4B00DB2B068B6B00E31462 /* QuizHistoryRow.swift in Sources */,
 				7A966DC22B0380380000946D /* QuizView.swift in Sources */,
