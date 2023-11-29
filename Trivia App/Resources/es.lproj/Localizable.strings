@@ -30,6 +30,16 @@
 "quizDetailView.title" = "Quiz Trivia";
 "quizDetailView.close" = "Cerrar test";
 
+// MARK: - OnboardingTabView
+"onboardingTabView.skip" = "Saltar";
+"onboardingTabView.welcome" = "¡Bienvenido Usuario!";
+"onboardingTabView.title1" = "Trivia Quiz App";
+"onboardingTabView.title2" = "¡Diferentes modos de juego!";
+"onboardingTabView.title3" = "¡Mira tus estadísticas!";
+"onboardingTabView.message1" = "¡Disfruta jugando y poniendo a prueba tus conocimientos!";
+"onboardingTabView.message2" = "¡Juega en modo supervivencia para obtener la mejor racha que puedas o completa un test y sigue aprendiendo!";
+"onboardingTabView.message3" = "¡Ve a estadísticas y comprueba tu mejor racha o resultados recientes!";
+
 // MARK: - QuestionErrorMessage
 "question.formattingErrorMessage" = "Error formateando la pregunta: ";
 "question.answersErrorMessage" = "Error formateando las respuestas: ";

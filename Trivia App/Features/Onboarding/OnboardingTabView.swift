@@ -13,7 +13,7 @@ struct OnboardingTabView: View {
     var image: String
     var title: String
     var detail: String
-    var backgroundColor: Color
+    var backgroundColor: Color = Color("MainColor")
     
     @AppStorage("currentPage") var currentPage = 1
     
@@ -22,7 +22,7 @@ struct OnboardingTabView: View {
             HStack {
                 
                 if currentPage == 1 {
-                    Text("Welcome user!")
+                    Text("onboardingTabView.welcome".localized())
                         .font(.title)
                         .fontWeight(.semibold)
                         .kerning(1.4)
@@ -51,9 +51,8 @@ struct OnboardingTabView: View {
                         currentPage = 1
                     }
                 }, label: {
-                    Text("Skip")
+                    Text("onboardingTabView.skip".localized())
                         .fontWeight(.semibold)
-                        .foregroundStyle(.black)
                 })
             }.padding()
             
@@ -66,13 +65,13 @@ struct OnboardingTabView: View {
             Text(title)
                 .font(.title)
                 .fontWeight(.bold)
-                .foregroundStyle(.black)
                 .padding(.top)
             
             Text(detail)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
                 .kerning(1.3)
+                .padding(.horizontal, 10)
             
             Spacer(minLength: 120)
         }.background(backgroundColor
@@ -88,6 +87,6 @@ struct OnboardingTabView: View {
         image: "trophy",
         title: "Step 1",
         detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje",
-        backgroundColor: Color("Cantaloupe")
+        backgroundColor: Color("MainColor")
     )
 }
