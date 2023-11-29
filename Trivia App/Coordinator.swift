@@ -77,6 +77,11 @@ class Coordinator: ObservableObject {
     func makeStatsViewModel() -> StatsViewViewModel {
         .init(repository: questionsRepository)
     }
-
     
+    
+    
+    // MARK: - OnboardingViewModel
+    func makeOnboardingViewModel() -> OnboardingViewModel {
+        OnboardingViewModel(onboardingrepository: onboardingRepository)
+    }
 }

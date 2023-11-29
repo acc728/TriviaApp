@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var coordinator: Coordinator
+    @State var showOnboarding: Bool = !UserDefaults.standard.bool(forKey: "onboardingShowed")
     
     init() {
         UITabBar.appearance().shadowImage = UIImage()
@@ -34,11 +35,12 @@ struct ContentView: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing)
         )
-        .fullScreenCover(isPresented: Binding.constant(false)) {
-             OnboardingView() // Pasarle la variable para que la actualice cuando acaba
-        }
+        .fullScreenCover(
+            isPresented: $showOnboarding) {
+                OnboardingView(showOnboarding: $showOnboarding)
+                    .environmentObject(coordinator.makeOnboardingViewModel())
+            }
     }
-        
 }
 
 
