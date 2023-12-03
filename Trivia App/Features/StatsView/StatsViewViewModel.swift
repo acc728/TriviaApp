@@ -8,7 +8,7 @@
 import Foundation
 
 class StatsViewViewModel: ObservableObject {
-    let repository: QuestionsRepository
+    private let repository: QuestionsRepository
     @Published private(set) var streak: Int = 0
     @Published private(set) var quizHistory: [Int] = []
     

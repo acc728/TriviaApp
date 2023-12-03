@@ -31,10 +31,7 @@ class SurvivalModeViewViewModel: ObservableObject {
         do {
             if !failed {
                 question = try await questionRepository.getQuestion()
-                /*questionText = question.formattedQuestion
-                answerChoices = question.answers
-                answerSelected = false
-                reachedEnd = false*/
+                setQuestion()
             } else {
                 reachedEnd = true
             }

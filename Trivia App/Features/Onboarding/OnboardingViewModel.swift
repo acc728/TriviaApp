@@ -8,7 +8,7 @@
 import Foundation
 
 class OnboardingViewModel: ObservableObject {
-    let onboardingrepository: OnboardingRepository
+    private let onboardingrepository: OnboardingRepository
     
     init(onboardingrepository: OnboardingRepository) {
         self.onboardingrepository = onboardingrepository

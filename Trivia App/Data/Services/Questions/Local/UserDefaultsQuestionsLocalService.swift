@@ -31,7 +31,7 @@ struct UserDefaultsQuestionsLocalService: QuestionsLocalService {
         var quizHistoryClear = quizHistory
 
         if quizHistory.count > maxLengthQuizHistory {
-            quizHistoryClear.removeSubrange(10...(quizHistory.count - 1))
+            quizHistoryClear.removeSubrange(maxLengthQuizHistory...(quizHistory.count - 1))
         }
 
         let data = try JSONEncoder().encode(quizHistoryClear)
