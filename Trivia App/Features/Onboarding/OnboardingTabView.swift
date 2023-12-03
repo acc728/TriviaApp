@@ -70,20 +70,21 @@ struct OnboardingTabView: View {
             
             Image(image)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .scaledToFit()
             
             Text(title)
                 .font(.title)
                 .fontWeight(.bold)
+                .multilineTextAlignment(.center)
                 .padding(.top)
             
             Text(detail)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
-                .kerning(1.3)
+                .kerning(1.2)
                 .padding(.horizontal, 10)
             
-            Spacer(minLength: 120)
+            Spacer(minLength: 150)
         }.background(backgroundColor
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .ignoresSafeArea()
@@ -94,7 +95,7 @@ struct OnboardingTabView: View {
 #Preview {
     OnboardingTabView(
         showOnboarding: Binding.constant(false),
-        image: "trophy",
+        image: "onboarding_learn",
         title: "Step 1",
         detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje"
     )

@@ -22,7 +22,7 @@ struct OnboardingView: View {
                 if(currentPage == 1) {
                     OnboardingTabView(
                         showOnboarding: $showOnboarding,
-                        image: "trophy",
+                        image: "onboardingQuiz",
                         title: "onboardingTabView.title1".localized(),
                         detail: "onboardingTabView.message1".localized()
                     )
@@ -33,7 +33,7 @@ struct OnboardingView: View {
                 if(currentPage == 2) {
                     OnboardingTabView(
                         showOnboarding: $showOnboarding,
-                        image: "trophy",
+                        image: "onboardingGame",
                         title: "onboardingTabView.title2".localized(),
                         detail: "onboardingTabView.message2".localized()
                     )
@@ -44,7 +44,7 @@ struct OnboardingView: View {
                 if(currentPage == 3) {
                     OnboardingTabView(
                         showOnboarding: $showOnboarding,
-                        image: "trophy",
+                        image: "onboardingStats",
                         title: "onboardingTabView.title3".localized(),
                         detail: "onboardingTabView.message3".localized()
                     )
