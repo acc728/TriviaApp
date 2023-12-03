@@ -10,16 +10,21 @@ import SwiftUI
 struct QuizHistoryRow: View {
     let numCorrects: Int
     var numQuestions: Int
+    let index: Int
     
-    init(numCorrects: Int, numQuestions: Int = 10) {
+    init(numCorrects: Int, numQuestions: Int = 10, index: Int) {
         self.numCorrects = numCorrects
         self.numQuestions = numQuestions
+        self.index = index
     }
     
     var body: some View {
-        HStack(spacing: 20) {
+        HStack(spacing: 15) {
             Spacer()
             
+            Text("#\(index)")
+                .padding(.trailing, 5)
+                        
             CircularProgressView(
                 progress: Double(numCorrects) / Double(numQuestions),
                 color: .blue,
@@ -27,12 +32,11 @@ struct QuizHistoryRow: View {
                 lineWidth: 15
             )
             .frame(width: 70)
-            .padding(.trailing, 10)
             
             Text("You got **\(numCorrects)** out of **\(numQuestions)**")
                 .fontWeight(.light)
                 .font(.title3)
-                .frame(maxWidth: 200)
+                .frame(maxWidth: 225)
             
             Spacer()
         }
@@ -43,20 +47,24 @@ struct QuizHistoryRow: View {
     VStack(spacing: 20) {
         QuizHistoryRow(
             numCorrects: 10,
-            numQuestions: 10
+            numQuestions: 10,
+            index: 0
         )
         QuizHistoryRow(
             numCorrects: 7,
-            numQuestions: 10
+            numQuestions: 10,
+            index: 1
         )
         QuizHistoryRow(
             numCorrects: 1,
-            numQuestions: 10
+            numQuestions: 10,
+            index: 2
         )
         
         QuizHistoryRow(
             numCorrects: 4,
-            numQuestions: 10
+            numQuestions: 10,
+            index: 3
         )
     }
 }

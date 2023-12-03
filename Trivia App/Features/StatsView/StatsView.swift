@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StatsView: View {
     @StateObject private var viewModel: StatsViewViewModel
+    @Environment(\.colorScheme) var colorScheme
     
     init(viewModel: StatsViewViewModel) {
         _viewModel =  StateObject(wrappedValue: viewModel)
@@ -33,19 +34,19 @@ struct StatsView: View {
                     .bold()
                     .font(.title2)
                 
-                Divider()
+                Divider().background(colorScheme == .light ? .black : .white)
                 
                 if !viewModel.quizHistory.isEmpty {
                     VStack(alignment: .center, spacing: 30) {
                         ScrollView {
                             ForEach(viewModel.quizHistory.indices, id: \.self) { index in
                                 if index <= viewModel.quizHistory.count {
-                                    QuizHistoryRow(numCorrects: viewModel.quizHistory[index])
+                                    QuizHistoryRow(numCorrects: viewModel.quizHistory[index], index: index)
                                         .padding(.vertical)
                                 }
                             }
                         }
-                    }.padding(10)
+                    }.padding(.horizontal, 0)
                 } else {
                     HStack {
                         Spacer()

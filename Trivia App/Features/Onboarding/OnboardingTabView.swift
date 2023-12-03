@@ -95,7 +95,7 @@ struct OnboardingTabView: View {
 #Preview {
     OnboardingTabView(
         showOnboarding: Binding.constant(false),
-        image: "onboarding_learn",
+        image: "onboardingQuiz",
         title: "Step 1",
         detail: "Texto de prueba con un texto largo para ver si se ve bien el mensaje"
     )
