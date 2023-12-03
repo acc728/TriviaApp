@@ -28,24 +28,24 @@ class Coordinator: ObservableObject {
     func makeModeSelectorView() -> ModeSelectorView {
         ModeSelectorView(
             quizViewModel: makeQuizViewModel(),
-            questionViewModel: makeQuestionViewModel()
+            questionViewModel: makeSurvivalModeViewModel()
         )
     }
     
 
     
-    // MARK: - QuestionView
-    func makeQuestionView() -> QuestionView {
-        QuestionView()
+    // MARK: - SurvivalModeView
+    func makeSurvivalModeView() -> SurvivalModeView {
+        SurvivalModeView()
     }
     
     // MARK: - QuestionDetailView
-    func makeQuestionDetailView() -> QuestionDetailView {
-        QuestionDetailView()
+    func makeSurvivalModeDetailView() -> SurvivalModeDetailView {
+        SurvivalModeDetailView()
     }
     
     // MARK: - QuestionViewViewModel
-    func makeQuestionViewModel() -> QuestionViewViewModel {
+    func makeSurvivalModeViewModel() -> SurvivalModeViewViewModel {
         .init(questionRepository: questionsRepository)
     }
     

@@ -10,7 +10,7 @@ import SwiftUI
 struct QuestionRowAnswer: View {
     var answer: Answer
     @State private var isSelected = false
-    @EnvironmentObject var viewModel: QuestionViewViewModel
+    @EnvironmentObject var viewModel: SurvivalModeViewViewModel
     
     var body: some View {
         HStack(spacing: 20) {
@@ -44,5 +44,5 @@ struct QuestionRowAnswer: View {
 
 #Preview {
     QuestionRowAnswer(answer: .example)
-        .environmentObject(Coordinator().makeQuestionViewModel())
+        .environmentObject(Coordinator().makeSurvivalModeViewModel())
 }

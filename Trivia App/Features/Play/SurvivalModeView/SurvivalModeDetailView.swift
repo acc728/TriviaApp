@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct QuestionDetailView: View {
-    @EnvironmentObject private var viewModel: QuestionViewViewModel
+struct SurvivalModeDetailView: View {
+    @EnvironmentObject private var viewModel: SurvivalModeViewViewModel
     @EnvironmentObject var coordinator: Coordinator
     
     var body: some View {
@@ -98,7 +98,7 @@ struct QuestionDetailView: View {
 
 #Preview {
     let coordinator = Coordinator(mock: true)
-    return coordinator.makeQuestionDetailView()
+    return coordinator.makeSurvivalModeDetailView()
         .environmentObject(coordinator)
-        .environmentObject(coordinator.makeQuestionViewModel())
+        .environmentObject(coordinator.makeSurvivalModeViewModel())
 }

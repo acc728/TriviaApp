@@ -10,9 +10,9 @@ import SwiftUI
 struct ModeSelectorView: View {
     @EnvironmentObject var coordinator: Coordinator
     @StateObject private var quizViewModel: QuizViewViewModel
-    @StateObject private var questionViewModel: QuestionViewViewModel
+    @StateObject private var questionViewModel: SurvivalModeViewViewModel
     
-    init(quizViewModel: QuizViewViewModel, questionViewModel: QuestionViewViewModel) {
+    init(quizViewModel: QuizViewViewModel, questionViewModel: SurvivalModeViewViewModel) {
         _quizViewModel = StateObject(wrappedValue: quizViewModel)
         _questionViewModel = StateObject(wrappedValue: questionViewModel)
     }
@@ -28,7 +28,7 @@ struct ModeSelectorView: View {
                 
                 VStack(spacing: 40){
                     NavigationLink {
-                        coordinator.makeQuestionView()
+                        coordinator.makeSurvivalModeView()
                             .environmentObject(questionViewModel)
                     } label: {
                         CardView(

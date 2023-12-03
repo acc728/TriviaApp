@@ -7,7 +7,7 @@
 
 import Foundation
 
-class QuestionViewViewModel: ObservableObject {
+class SurvivalModeViewViewModel: ObservableObject {
     private let questionRepository: QuestionsRepository
     @Published var question: Question = .example
     @Published var showErrorMessage = false
