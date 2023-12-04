@@ -14,12 +14,15 @@ struct FavoritesRepository {
         self.localService = localService
     }
     
-    /*
-    func getOnboardingState() -> Bool {
-        return localService.getOnboardingState()
+    func getFavoriteQuestions() async throws -> [Question] {
+        return try await localService.getFavoriteQuestions()
     }
     
-    func saveOnboardingState(showed: Bool) {
-        localService.saveOnboardingState(showed: showed)
-    }*/
+    func addFavoriteQuestion(question: Question) async throws {
+        return try await localService.addFavoriteQuestion(question: question)
+    }
+    
+    func removeFavoriteQuestion(question: Question) async throws {
+        return try await localService.removeFavoriteQuestion(question: question)
+    }
 }

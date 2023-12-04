@@ -41,7 +41,20 @@ struct QuizDetailView: View {
             ProgressBar(progress: viewModel.progress)
             
             HStack {
+                Button {
+                    
+                } label: {
+                    Label("Add Favs", systemImage: "star.fill")
+                        .foregroundStyle(
+                            LinearGradient(
+                                colors: Gradients.redGradient,
+                                startPoint: .trailing,
+                                endPoint: .leading)
+                        )
+                }
+                
                 Spacer()
+                
                 Text("\(viewModel.index + 1) out of \(viewModel.length)")
                     .font(.title3)
                     .fontWeight(.light)

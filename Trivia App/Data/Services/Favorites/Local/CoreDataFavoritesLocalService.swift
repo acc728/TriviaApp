@@ -8,6 +8,9 @@
 import Foundation
 import CoreData
 
+// NOTA: - Se podria hacer con UserDefaults en el questionsRepository
+// pero por aprendizaje se ha implementado con CoreData.
+
 struct CoreDataFavoritesLocalService: FavoritesLocalService {
     
     let container: NSPersistentContainer

@@ -38,6 +38,21 @@ struct SurvivalModeDetailView: View {
             }
             
             HStack {
+                
+                Button {
+                    
+                } label: {
+                    Label("Add Favs", systemImage: "star.fill")
+                        .foregroundStyle(
+                            LinearGradient(
+                                colors: Gradients.redGradient,
+                                startPoint: .trailing,
+                                endPoint: .leading)
+                        )
+                }
+                
+                Spacer()
+                
                 Text("You have a streak of \(viewModel.streak)")
                     .font(.title3)
                     .fontWeight(.light)

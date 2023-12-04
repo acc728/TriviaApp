@@ -12,6 +12,7 @@
 
 // MARK: - ContentView
 "contentView.playTab" = "Jugar";
+"contentView.favsTab" = "Favoritos";
 "contentView.statsTab" = "Estadísticas";
 
 // MARK: - QuestionView

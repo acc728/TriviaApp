@@ -9,6 +9,7 @@ import SwiftUI
 
 class QuizViewViewModel: ObservableObject {
     private let questionRepository: QuestionsRepository
+    private let favoritesRepository: FavoritesRepository
     @Published var quiz: [Question] = []
     @Published var showErrorMessage = false
     @Published private(set) var length = 0
@@ -21,8 +22,9 @@ class QuizViewViewModel: ObservableObject {
     @Published private(set) var score = 0
     
     
-    init(questionRepository: QuestionsRepository) {
+    init(questionRepository: QuestionsRepository, favoritesRepository: FavoritesRepository) {
         self.questionRepository = questionRepository
+        self.favoritesRepository = favoritesRepository
         Task {
             await self.getQuiz()
         }
@@ -84,5 +86,23 @@ class QuizViewViewModel: ObservableObject {
     
     func getQuizHistory() -> [Int] {
         return questionRepository.getQuizHistory()
+    }
+    
+    @MainActor
+    func addFavoriteQuestion(question: Question) async {
+        do {
+            try await favoritesRepository.addFavoriteQuestion(question: self.quiz[index])
+        } catch {
+            showErrorMessage = true
+        }
+    }
+    
+    @MainActor
+    func removeFavoriteQuestion(question: Question) async {
+        do {
+            try await favoritesRepository.removeFavoriteQuestion(question: self.quiz[index])
+        } catch {
+            showErrorMessage = true
+        }
     }
 }
