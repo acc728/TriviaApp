@@ -8,5 +8,11 @@
 import Foundation
 
 protocol FavoritesLocalService {
-    //func 
+    
+    func getFavoriteQuestions() async throws -> [Question]
+    
+    func addFavoriteQuestion(question: Question) async throws
+    
+    func removeFavoriteQuestion(question: Question) async throws
+    
 }
