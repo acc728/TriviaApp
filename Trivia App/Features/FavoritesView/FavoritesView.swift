@@ -23,9 +23,28 @@ struct FavoritesView: View {
             )
             
             Spacer()
+            List {
+                ForEach(viewModel.questions) { question in
+                    Text(question.formattedQuestion)
+                        
+                }
+                .onDelete(perform: { indexSet in
+                    viewModel.questions.remove(atOffsets: indexSet)
+                })
+                
+                
+            }
+            Spacer()
+            
         }.setBackgroundApp()
+        .task {
+            await viewModel.getFavoriteQuestions()
+        }
     }
+    
 }
+
+
 
 #Preview {
     let coordinator = Coordinator()

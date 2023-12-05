@@ -10,6 +10,7 @@
 		7A03EC752B03C5E900B405F4 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A03EC742B03C5E900B405F4 /* ColorExtensions.swift */; };
 		7A03EC772B03E86300B405F4 /* SurvivalModeRowAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A03EC762B03E86300B405F4 /* SurvivalModeRowAnswer.swift */; };
 		7A03EC792B03EE3F00B405F4 /* SurvivalModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A03EC782B03EE3F00B405F4 /* SurvivalModeView.swift */; };
+		7A0810AA2B1F0F9400A03301 /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = 7A0810A92B1F0F9400A03301 /* SimpleToast */; };
 		7A0A00E82B0B498B00872AFF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7A0A00E72B0B498B00872AFF /* Lottie */; };
 		7A0A00EA2B0B49E300872AFF /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0A00E92B0B49E300872AFF /* LottieView.swift */; };
 		7A0E7BE92B14870F00B995CB /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0E7BE82B14870F00B995CB /* ViewExtensions.swift */; };
@@ -132,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A0810AA2B1F0F9400A03301 /* SimpleToast in Frameworks */,
 				7A0A00E82B0B498B00872AFF /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +446,7 @@
 			name = "Trivia App";
 			packageProductDependencies = (
 				7A0A00E72B0B498B00872AFF /* Lottie */,
+				7A0810A92B1F0F9400A03301 /* SimpleToast */,
 			);
 			productName = "Trivia App";
 			productReference = 7ABE2DB02B020BDC00279C51 /* Trivia App.app */;
@@ -476,6 +479,7 @@
 			mainGroup = 7ABE2DA72B020BDC00279C51;
 			packageReferences = (
 				7A0A00E62B0B498B00872AFF /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				7A0810A82B1F0F9400A03301 /* XCRemoteSwiftPackageReference "SimpleToast" */,
 			);
 			productRefGroup = 7ABE2DB12B020BDC00279C51 /* Products */;
 			projectDirPath = "";
@@ -780,6 +784,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7A0810A82B1F0F9400A03301 /* XCRemoteSwiftPackageReference "SimpleToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sanzaru/SimpleToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.1;
+			};
+		};
 		7A0A00E62B0B498B00872AFF /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -791,6 +803,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7A0810A92B1F0F9400A03301 /* SimpleToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7A0810A82B1F0F9400A03301 /* XCRemoteSwiftPackageReference "SimpleToast" */;
+			productName = SimpleToast;
+		};
 		7A0A00E72B0B498B00872AFF /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7A0A00E62B0B498B00872AFF /* XCRemoteSwiftPackageReference "lottie-spm" */;

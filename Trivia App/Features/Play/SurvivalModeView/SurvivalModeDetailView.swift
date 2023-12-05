@@ -6,10 +6,21 @@
 //
 
 import SwiftUI
+import SimpleToast
 
 struct SurvivalModeDetailView: View {
     @EnvironmentObject private var viewModel: SurvivalModeViewViewModel
     @EnvironmentObject var coordinator: Coordinator
+    @State private var showToast = false
+    @State private var toastColor = Color.green
+    
+    private let toastOptions = SimpleToastOptions(
+        alignment: .top,
+        hideAfter: 1,
+        backdrop: .black.opacity(0.2),
+        animation: .default,
+        modifierType: .slide
+    )
     
     var body: some View {
         VStack(spacing: 20) {
@@ -43,9 +54,13 @@ struct SurvivalModeDetailView: View {
                         if(!viewModel.isFavorite) {
                             await viewModel.addFavoriteQuestion()
                             print("Question value (is favorite): " + viewModel.isFavorite.description)
+                            toastColor = .green
+                            showToast = true
                         } else {
                             await viewModel.removeFavoriteQuestion()
                             print("Question value (not favorite): " + viewModel.isFavorite.description)
+                            toastColor = .red
+                            showToast = true
                         }
                         
                         
@@ -113,8 +128,18 @@ struct SurvivalModeDetailView: View {
             
             Spacer()
         }
-        .navigationBarBackButtonHidden(true)
         .padding()
+        .simpleToast(isPresented: $showToast, options: toastOptions, content: {
+            HStack {
+                Image(systemName: toastColor == .green ? "checkmark.circle.fill" : "x.circle.fill")
+                Text( toastColor == .green ? "Added to favorites": "Removed from favorites")
+            }
+            .padding()
+            .background(toastColor.opacity(0.8))
+            .foregroundStyle(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 14))
+        })
+        .navigationBarBackButtonHidden(true)
         .setBackgroundApp()
     }
 }
