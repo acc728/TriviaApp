@@ -35,6 +35,7 @@ class SurvivalModeViewViewModel: ObservableObject {
         do {
             if !failed {
                 question = try await questionRepository.getQuestion()
+                await isFavoriteQuestion()
                 setQuestion()
             } else {
                 reachedEnd = true

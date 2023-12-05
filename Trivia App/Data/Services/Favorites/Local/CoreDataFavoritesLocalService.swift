@@ -48,6 +48,7 @@ struct CoreDataFavoritesLocalService: FavoritesLocalService {
         cdFavorite.incorrectAnswers = question.incorrectAnswers
         cdFavorite.type = question.type
         cdFavorite.question = String(question.formattedQuestion.characters)
+        
         try container.viewContext.save()
     }
     

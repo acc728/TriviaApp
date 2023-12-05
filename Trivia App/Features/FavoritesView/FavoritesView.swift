@@ -26,20 +26,25 @@ struct FavoritesView: View {
             List {
                 ForEach(viewModel.questions) { question in
                     Text(question.formattedQuestion)
-                        
+                    
                 }
                 .onDelete(perform: { indexSet in
-                    viewModel.questions.remove(atOffsets: indexSet)
+                    Task {
+                        for index in indexSet {
+                            await viewModel.removeFavoriteQuestions(index: index)
+                        }
+                    }
                 })
-                
-                
             }
+            .scrollContentBackground(.hidden)
+            
+            
             Spacer()
             
         }.setBackgroundApp()
-        .task {
-            await viewModel.getFavoriteQuestions()
-        }
+            .task {
+                await viewModel.getFavoriteQuestions()
+            }
     }
     
 }

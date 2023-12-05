@@ -31,11 +31,12 @@ class FavoritesViewModel: ObservableObject {
     }
     
     @MainActor
-    func removeFavoriteQuestions(question: Question) async {
+    func removeFavoriteQuestions(index: Int) async {
         error = nil
         
         do {
-            try await favoritesRepository.removeFavoriteQuestion(question: question)
+            try await favoritesRepository.removeFavoriteQuestion(question: self.questions[index])
+            await getFavoriteQuestions()
         } catch {
             self.error = error
         }

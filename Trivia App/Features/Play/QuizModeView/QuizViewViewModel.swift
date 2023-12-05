@@ -41,6 +41,7 @@ class QuizViewViewModel: ObservableObject {
             self.reachedEnd = false
             
             quiz = try await questionRepository.getQuiz()
+            await isFavoriteQuestion()
             self.length = quiz.count
             self.setQuestion()
         } catch {
