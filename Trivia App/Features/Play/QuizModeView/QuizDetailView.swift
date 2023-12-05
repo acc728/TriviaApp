@@ -42,9 +42,20 @@ struct QuizDetailView: View {
             
             HStack {
                 Button {
-                    
+                    Task {
+                        if(viewModel.currentQuestion != nil) {
+                            if(!viewModel.isFavorite) {
+                                await viewModel.addFavoriteQuestion()
+                                print("Question value (is favorite): " + viewModel.isFavorite.description)
+                            } else {
+                                await viewModel.removeFavoriteQuestion()
+                                print("Question value (not favorite): " + viewModel.isFavorite.description)
+                            }
+                        }
+                        
+                    }
                 } label: {
-                    Label("Add Favs", systemImage: "star.fill")
+                    Label("Add Favs", systemImage: viewModel.isFavorite ? "star.fill" : "star")
                         .foregroundStyle(
                             LinearGradient(
                                 colors: Gradients.redGradient,

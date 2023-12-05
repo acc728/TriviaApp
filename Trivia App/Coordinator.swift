@@ -52,7 +52,7 @@ class Coordinator: ObservableObject {
     
     // MARK: - QuestionViewViewModel
     func makeSurvivalModeViewModel() -> SurvivalModeViewViewModel {
-        .init(questionRepository: questionsRepository)
+        .init(questionRepository: questionsRepository, favoritesRepository: favoritesRepository)
     }
     
     

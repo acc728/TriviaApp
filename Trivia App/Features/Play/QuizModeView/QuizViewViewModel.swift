@@ -20,6 +20,8 @@ class QuizViewViewModel: ObservableObject {
     @Published private(set) var answerChoices: [Answer] = []
     @Published private(set) var progress: CGFloat = 0.0
     @Published private(set) var score = 0
+    @Published private(set) var isFavorite = false
+    @Published private(set) var currentQuestion: Question?
     
     
     init(questionRepository: QuestionsRepository, favoritesRepository: FavoritesRepository) {
@@ -62,6 +64,8 @@ class QuizViewViewModel: ObservableObject {
         
         if index < length {
             let currentQuestion = quiz[index]
+            
+            self.currentQuestion = currentQuestion
             question = currentQuestion.formattedQuestion
             answerChoices = currentQuestion.answers
         }
@@ -89,18 +93,29 @@ class QuizViewViewModel: ObservableObject {
     }
     
     @MainActor
-    func addFavoriteQuestion(question: Question) async {
+    func addFavoriteQuestion() async {
         do {
             try await favoritesRepository.addFavoriteQuestion(question: self.quiz[index])
+            await isFavoriteQuestion()
         } catch {
             showErrorMessage = true
         }
     }
     
     @MainActor
-    func removeFavoriteQuestion(question: Question) async {
+    func removeFavoriteQuestion() async {
         do {
             try await favoritesRepository.removeFavoriteQuestion(question: self.quiz[index])
+            await isFavoriteQuestion()
+        } catch {
+            showErrorMessage = true
+        }
+    }
+    
+    @MainActor
+    private func isFavoriteQuestion() async {
+        do {
+            isFavorite = try await favoritesRepository.isFavoriteQuestion(question: self.quiz[index])
         } catch {
             showErrorMessage = true
         }

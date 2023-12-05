@@ -19,10 +19,14 @@ struct FavoritesRepository {
     }
     
     func addFavoriteQuestion(question: Question) async throws {
-        return try await localService.addFavoriteQuestion(question: question)
+        try await localService.addFavoriteQuestion(question: question)
     }
     
     func removeFavoriteQuestion(question: Question) async throws {
-        return try await localService.removeFavoriteQuestion(question: question)
+        try await localService.removeFavoriteQuestion(question: question)
+    }
+    
+    func isFavoriteQuestion(question: Question) async throws -> Bool {
+        return try await localService.isFavoriteQuestion(question: question)
     }
 }

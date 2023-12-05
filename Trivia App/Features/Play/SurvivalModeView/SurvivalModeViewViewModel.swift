@@ -9,6 +9,8 @@ import Foundation
 
 class SurvivalModeViewViewModel: ObservableObject {
     private let questionRepository: QuestionsRepository
+    private let favoritesRepository: FavoritesRepository
+    
     @Published var question: Question = .example
     @Published var showErrorMessage = false
     @Published private(set) var answerSelected = false
@@ -17,9 +19,11 @@ class SurvivalModeViewViewModel: ObservableObject {
     @Published private(set) var streak: Int = 0
     @Published private(set) var failed = false
     @Published private(set) var reachedEnd = false
+    @Published private(set) var isFavorite = false
     
-    init(questionRepository: QuestionsRepository) {
+    init(questionRepository: QuestionsRepository, favoritesRepository: FavoritesRepository) {
         self.questionRepository = questionRepository
+        self.favoritesRepository = favoritesRepository
         Task {
             await self.getQuestion()
             await self.setQuestion()
@@ -64,5 +68,34 @@ class SurvivalModeViewViewModel: ObservableObject {
     
     func getStreak() -> Int {
         return questionRepository.getStreak()
+    }
+    
+    @MainActor
+    func addFavoriteQuestion() async {
+        do {
+            try await favoritesRepository.addFavoriteQuestion(question: self.question)
+            await isFavoriteQuestion()
+        } catch {
+            showErrorMessage = true
+        }
+    }
+    
+    @MainActor
+    func removeFavoriteQuestion() async {
+        do {
+            try await favoritesRepository.removeFavoriteQuestion(question: self.question)
+            await isFavoriteQuestion()
+        } catch {
+            showErrorMessage = true
+        }
+    }
+    
+    @MainActor
+    private func isFavoriteQuestion() async {
+        do {
+            isFavorite = try await favoritesRepository.isFavoriteQuestion(question: self.question)
+        } catch {
+            showErrorMessage = true
+        }
     }
 }

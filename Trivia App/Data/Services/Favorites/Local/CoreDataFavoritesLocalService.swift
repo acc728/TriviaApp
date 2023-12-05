@@ -67,4 +67,11 @@ struct CoreDataFavoritesLocalService: FavoritesLocalService {
         try container.viewContext.save()
     }
     
+    func isFavoriteQuestion(question: Question) async throws -> Bool {
+        let favoritesQuestions = try await getFavoriteQuestions()
+        
+        return favoritesQuestions.contains { fav in
+            fav.id == question.id
+        }
+    }
 }

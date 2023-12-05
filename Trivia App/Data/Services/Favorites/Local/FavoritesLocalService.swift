@@ -15,4 +15,6 @@ protocol FavoritesLocalService {
     
     func removeFavoriteQuestion(question: Question) async throws
     
+    func isFavoriteQuestion(question: Question) async throws -> Bool
+    
 }
