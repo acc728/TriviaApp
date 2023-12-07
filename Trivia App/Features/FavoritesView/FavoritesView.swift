@@ -23,9 +23,21 @@ struct FavoritesView: View {
             )
             
             Spacer()
+            
             List {
                 ForEach(viewModel.questions) { question in
-                    Text(question.formattedQuestion)
+                    DisclosureGroup {
+                        FavoritesDetailCardView()
+                    } label: {
+                        FavoritesCardView(question: question)
+                    }
+                    .tint(LinearGradient(
+                        colors: Gradients.redGradient,
+                        startPoint: .leading,
+                        endPoint: .trailing)
+                    )
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
+                    .listRowBackground(Color.clear)
                     
                 }
                 .onDelete(perform: { indexSet in
@@ -35,9 +47,10 @@ struct FavoritesView: View {
                         }
                     }
                 })
+
             }
+            .listRowSpacing(15)
             .scrollContentBackground(.hidden)
-            
             
             Spacer()
             

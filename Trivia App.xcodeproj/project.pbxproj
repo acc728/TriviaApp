@@ -37,6 +37,8 @@
 		7A966DC42B038BC20000946D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A966DC32B038BC20000946D /* CardView.swift */; };
 		7A9914B62B1DE14400C927FF /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9914B52B1DE14400C927FF /* FavoritesView.swift */; };
 		7A9914B82B1DE16C00C927FF /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9914B72B1DE16C00C927FF /* FavoritesViewModel.swift */; };
+		7A9BE64B2B22417A0096D080 /* FavoritesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BE64A2B22417A0096D080 /* FavoritesCardView.swift */; };
+		7A9BE64D2B224A670096D080 /* FavoritesDetailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BE64C2B224A670096D080 /* FavoritesDetailCardView.swift */; };
 		7AA1DA6C2B0668CA0068669A /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA1DA6B2B0668CA0068669A /* StatsView.swift */; };
 		7AAF1B782B0664AF00FDFD65 /* QuestionsLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAF1B772B0664AF00FDFD65 /* QuestionsLocalService.swift */; };
 		7ABE2DB42B020BDC00279C51 /* Trivia_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE2DB32B020BDC00279C51 /* Trivia_AppApp.swift */; };
@@ -96,6 +98,8 @@
 		7A966DC32B038BC20000946D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		7A9914B52B1DE14400C927FF /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		7A9914B72B1DE16C00C927FF /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		7A9BE64A2B22417A0096D080 /* FavoritesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCardView.swift; sourceTree = "<group>"; };
+		7A9BE64C2B224A670096D080 /* FavoritesDetailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDetailCardView.swift; sourceTree = "<group>"; };
 		7AA1DA6B2B0668CA0068669A /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		7AAF1B772B0664AF00FDFD65 /* QuestionsLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsLocalService.swift; sourceTree = "<group>"; };
 		7ABE2DB02B020BDC00279C51 /* Trivia App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trivia App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +220,8 @@
 			children = (
 				7A9914B52B1DE14400C927FF /* FavoritesView.swift */,
 				7A9914B72B1DE16C00C927FF /* FavoritesViewModel.swift */,
+				7A9BE64A2B22417A0096D080 /* FavoritesCardView.swift */,
+				7A9BE64C2B224A670096D080 /* FavoritesDetailCardView.swift */,
 			);
 			path = FavoritesView;
 			sourceTree = "<group>";
@@ -527,6 +533,7 @@
 				7A5BB8CF2B1DB874005C6C52 /* FavoritesLocalService.swift in Sources */,
 				7ABE2DC52B020DE100279C51 /* NetworkClientError.swift in Sources */,
 				7A947CD02B1731F3009A4499 /* OnboardingLocalService.swift in Sources */,
+				7A9BE64B2B22417A0096D080 /* FavoritesCardView.swift in Sources */,
 				7A482A252B0684EE002C3716 /* CircularProgressView.swift in Sources */,
 				7A5ACB2A2B0DE6F000E54466 /* SplashScreenView.swift in Sources */,
 				7A947CD22B17327B009A4499 /* OnboardingRepository.swift in Sources */,
@@ -537,6 +544,7 @@
 				7AF17CE92B02994400761E37 /* QuizViewViewModel.swift in Sources */,
 				7AAF1B782B0664AF00FDFD65 /* QuestionsLocalService.swift in Sources */,
 				7AF17CDD2B027F7C00761E37 /* ProgressBar.swift in Sources */,
+				7A9BE64D2B224A670096D080 /* FavoritesDetailCardView.swift in Sources */,
 				7A482A232B067FA4002C3716 /* HeaderView.swift in Sources */,
 				7AF17CDF2B0281EA00761E37 /* Answer.swift in Sources */,
 				7ABE2DC32B020DC900279C51 /* NetworkClient.swift in Sources */,
