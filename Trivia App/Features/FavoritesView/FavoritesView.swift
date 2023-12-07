@@ -28,6 +28,7 @@ struct FavoritesView: View {
                 ForEach(viewModel.questions) { question in
                     DisclosureGroup {
                         FavoritesDetailCardView(question: question)
+                            .listRowInsets(.init(top: 0, leading: -20, bottom: 0, trailing: 15))
                     } label: {
                         FavoritesCardView(question: question)
                     }
