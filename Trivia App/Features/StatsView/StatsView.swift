@@ -29,10 +29,13 @@ struct StatsView: View {
                 streak: viewModel.streak)
             .padding()
             
-            VStack(alignment: .leading) {
-                Text("Quiz History")
-                    .bold()
+            VStack {
+                HStack {
+                    Text("Quiz History")
+                        .bold()
                     .font(.title2)
+                    Spacer()
+                }
                 
                 Divider().background(colorScheme == .light ? .black : .white)
                 
@@ -48,17 +51,13 @@ struct StatsView: View {
                         }
                     }.padding(.horizontal, 0)
                 } else {
-                    HStack {
+                    VStack {
                         Spacer()
                         Text("Couldn't find any quiz history")
                             .font(.title2)
                             .fontWeight(.light)
                             .padding(.vertical)
                         
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
                         Image("question")
                             .resizable()
                             .scaledToFit()

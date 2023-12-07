@@ -31,8 +31,14 @@
 "quizDetailView.title" = "Quiz Trivia";
 "quizDetailView.close" = "Close quiz";
 
+// MARK: - StatsView
+"statsView.quizHistory" = "Quiz History";
+
 // MARK: - FavoritesCardView
 "favoritesCardView.difficulty" = "Difficulty: ";
+
+// MARK: - FavoritesView
+"favoritesView.favoritesQuestionsEmpty" = "Couldn't find favorites questions";
 
 // MARK: - FavoritesDetailCardView
 "favoritesDetailCardView.question" = "Question: ";
