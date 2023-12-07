@@ -31,6 +31,15 @@
 "quizDetailView.title" = "Quiz Trivia";
 "quizDetailView.close" = "Close quiz";
 
+// MARK: - FavoritesCardView
+"favoritesCardView.difficulty" = "Difficulty: ";
+
+// MARK: - FavoritesDetailCardView
+"favoritesDetailCardView.question" = "Question: ";
+"favoritesDetailCardView.category" = "Category: ";
+"favoritesDetailCardView.answers" = "Answers: ";
+"favoritesDetailCardView.correctAnswer" = "Correct Answer: ";
+
 // MARK: - OnboardingTabView
 "onboardingTabView.skip" = "Skip";
 "onboardingTabView.welcome" = "Welcome User!";

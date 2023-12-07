@@ -14,7 +14,7 @@ struct FavoritesDetailCardView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     HStack {
-                        Text("Question: ")
+                        Text("favoritesDetailCardView.question".localized())
                             .font(.headline)
                             .fontWeight(.heavy)
                             .foregroundStyle(.white)
@@ -28,7 +28,7 @@ struct FavoritesDetailCardView: View {
                     }
                     
                     HStack {
-                        Text("Category: ")
+                        Text("favoritesDetailCardView.category".localized())
                             .font(.headline)
                             .fontWeight(.heavy)
                             .foregroundStyle(.white)
@@ -42,7 +42,7 @@ struct FavoritesDetailCardView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Answers: ")
+                        Text("favoritesDetailCardView.answers".localized())
                             .font(.headline)
                             .fontWeight(.heavy)
                             .foregroundStyle(.white)
@@ -62,7 +62,7 @@ struct FavoritesDetailCardView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Correct Answer: ")
+                        Text("favoritesDetailCardView.correctAnswer".localized())
                             .font(.headline)
                             .fontWeight(.heavy)
                             .foregroundStyle(.white)

@@ -84,7 +84,7 @@ struct SurvivalModeView: View {
 }
 
 #Preview {
-    let coordinator = Coordinator(mock: true)
+    let coordinator = Coordinator(mock: false)
     return coordinator.makeSurvivalModeView()
         .environmentObject(coordinator)
         .environmentObject(coordinator.makeSurvivalModeViewModel())

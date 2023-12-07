@@ -16,7 +16,6 @@
 		7A0E7BE92B14870F00B995CB /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0E7BE82B14870F00B995CB /* ViewExtensions.swift */; };
 		7A38DE2B2B035D9E00CB49E3 /* ModeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A38DE2A2B035D9E00CB49E3 /* ModeSelectorView.swift */; };
 		7A40C0F72B15D3BD00B7B31B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A40C0F62B15D3BD00B7B31B /* OnboardingView.swift */; };
-		7A4406C42B22704900DA7D1F /* TextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4406C32B22704900DA7D1F /* TextExtensions.swift */; };
 		7A482A232B067FA4002C3716 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A482A222B067FA4002C3716 /* HeaderView.swift */; };
 		7A482A252B0684EE002C3716 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A482A242B0684EE002C3716 /* CircularProgressView.swift */; };
 		7A4B00D92B068ADA00E31462 /* StreakCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B00D82B068ADA00E31462 /* StreakCardView.swift */; };
@@ -78,7 +77,6 @@
 		7A0E7BE82B14870F00B995CB /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		7A38DE2A2B035D9E00CB49E3 /* ModeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectorView.swift; sourceTree = "<group>"; };
 		7A40C0F62B15D3BD00B7B31B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		7A4406C32B22704900DA7D1F /* TextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextExtensions.swift; sourceTree = "<group>"; };
 		7A482A222B067FA4002C3716 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		7A482A242B0684EE002C3716 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		7A4B00D82B068ADA00E31462 /* StreakCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakCardView.swift; sourceTree = "<group>"; };
@@ -252,8 +250,8 @@
 				7A5ACB292B0DE6F000E54466 /* SplashScreenView.swift */,
 				7ABE2DDE2B021BFB00279C51 /* Coordinator.swift */,
 				7ABE2DC82B0212DD00279C51 /* Features */,
-				7ABE2DC92B0212E700279C51 /* Data */,
 				7ABE2DCA2B0212F500279C51 /* Entities */,
+				7ABE2DC92B0212E700279C51 /* Data */,
 				7ABE2DC12B020DA300279C51 /* NetworkClient */,
 				7AF17CDB2B027F6800761E37 /* Components */,
 				7ABE2DCF2B0216F300279C51 /* Extensions */,
@@ -318,7 +316,6 @@
 				7ABE2DD02B02170A00279C51 /* StringExtensions.swift */,
 				7A03EC742B03C5E900B405F4 /* ColorExtensions.swift */,
 				7A0E7BE82B14870F00B995CB /* ViewExtensions.swift */,
-				7A4406C32B22704900DA7D1F /* TextExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -562,7 +559,6 @@
 				7AF17CDA2B02729200761E37 /* SurvivalModeViewViewModel.swift in Sources */,
 				7A0A00EA2B0B49E300872AFF /* LottieView.swift in Sources */,
 				7AF17CE32B0286E600761E37 /* MainButton.swift in Sources */,
-				7A4406C42B22704900DA7D1F /* TextExtensions.swift in Sources */,
 				7AF17CE12B02825F00761E37 /* QuizRowAnswer.swift in Sources */,
 				7AF17CCE2B026A1E00761E37 /* SurvivalModeDetailView.swift in Sources */,
 				7AF17CE72B0298D100761E37 /* QuizDetailView.swift in Sources */,

@@ -40,9 +40,9 @@ struct Question: Codable, Identifiable {
     static var example: Question {
         .init(
             id: UUID().uuidString,
-            category: "Science: Mathematics",
+            category: "General Knowledge",
             type: "multiple",
-            difficulty: "medium",
+            difficulty: "easy",
             question: "What is the first Mersenne prime exponent over 1000?",
             correctAnswer: "1279",
             incorrectAnswers: [

@@ -49,11 +49,12 @@ class QuizViewViewModel: ObservableObject {
         }
     }
     
-    func goNextQuestion(){
+    func goNextQuestion() {
         if index + 1 < length {
             index += 1
             progress += 1.0
             setQuestion()
+            isFavorite = false
         } else {
             reachedEnd = true
         }

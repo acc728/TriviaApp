@@ -13,11 +13,11 @@ struct FavoritesCardView: View {
     var body: some View {
         HStack(spacing: 5) {
             
-            Image("triviaLogo")
+            Image(question.category.categoryToImageName())
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: 80, maxHeight: 80)
-                .padding(.leading, 5)
+                .padding(.leading, 10)
             
             VStack(alignment: .leading) {
                 
@@ -34,7 +34,7 @@ struct FavoritesCardView: View {
                 
                 HStack {
                     Spacer()
-                    Text("Difficulty: " + question.difficulty)
+                    Text("favoritesCardView.difficulty".localized() + question.difficulty)
                         .font(.headline)
                         .foregroundStyle(.white)
                         .fontWeight(.semibold)
