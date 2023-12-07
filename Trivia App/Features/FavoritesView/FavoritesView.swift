@@ -27,7 +27,7 @@ struct FavoritesView: View {
             List {
                 ForEach(viewModel.questions) { question in
                     DisclosureGroup {
-                        FavoritesDetailCardView()
+                        FavoritesDetailCardView(question: question)
                     } label: {
                         FavoritesCardView(question: question)
                     }
@@ -47,17 +47,17 @@ struct FavoritesView: View {
                         }
                     }
                 })
-
+                
             }
-            .listRowSpacing(15)
+            .listRowSpacing(10)
             .scrollContentBackground(.hidden)
             
             Spacer()
             
         }.setBackgroundApp()
-            .task {
-                await viewModel.getFavoriteQuestions()
-            }
+        .task {
+            await viewModel.getFavoriteQuestions()
+        }
     }
     
 }

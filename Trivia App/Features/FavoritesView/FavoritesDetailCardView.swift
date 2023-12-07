@@ -8,11 +8,99 @@
 import SwiftUI
 
 struct FavoritesDetailCardView: View {
+    var question: Question
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    HStack {
+                        Text("Question: ")
+                            .font(.headline)
+                            .fontWeight(.heavy)
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.leading)
+                        
+                        Text(question.formattedQuestion)
+                            .font(.title3)
+                            .fontWeight(.regular)
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.leading)
+                    }
+                    
+                    HStack {
+                        Text("Category: ")
+                            .font(.headline)
+                            .fontWeight(.heavy)
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.leading)
+                        
+                        Text(question.category)
+                            .font(.title3)
+                            .fontWeight(.regular)
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.leading)
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Answers: ")
+                            .font(.headline)
+                            .fontWeight(.heavy)
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.leading)
+                        
+                        ForEach(question.answers) { answer in
+                            HStack {
+                                Image(systemName: "circle.fill")
+                                Text(answer.text)
+                                    .fontWeight(.regular)
+                                    .multilineTextAlignment(.leading)
+                                Spacer()
+                            }
+                            .padding(.leading, 20)
+                            .foregroundColor(.white)
+                        }
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Correct Answer: ")
+                            .font(.headline)
+                            .fontWeight(.heavy)
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.leading)
+                        
+                        
+                        HStack {
+                            Image(systemName: "checkmark.circle.fill")
+                            Text(question.correctAnswer)
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.leading)
+                            Spacer()
+                        }
+                        .foregroundStyle(.darkGreen)
+                        .padding(.leading, 20)
+                        .foregroundColor(.white)
+                    }
+                }
+                
+                .padding(10)
+                
+                
+                
+                
+            }
+            .frame(maxWidth: .infinity, maxHeight: 300)
+            .background(
+                LinearGradient(
+                    gradient: Gradient(colors: Gradients.redGradient),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .shadow(color: .darkGrey, radius: 5, x: 3, y:3)
+        }
+    
 }
 
 #Preview {
-    FavoritesDetailCardView()
+    FavoritesDetailCardView(question: .example)
 }
