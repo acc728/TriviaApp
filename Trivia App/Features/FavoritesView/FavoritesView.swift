@@ -57,17 +57,17 @@ struct FavoritesView: View {
                 Spacer()
             } else {
                 VStack(alignment: .center) {
-                    Spacer()
+                    
+                    Image("favoritesNotFound")
+                        .resizable()
+                        .scaledToFit()
                     
                     Text("favoritesView.favoritesQuestionsEmpty".localized())
                         .font(.title2)
                         .fontWeight(.light)
                         .padding(.vertical)
                     
-                    Image("question")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 130)
+                    
                     
                     Spacer()
                 }

@@ -13,11 +13,11 @@ struct OnboardingView: View {
     @Environment(\.colorScheme) var colorScheme
     
     @AppStorage("currentPage") var currentPage = 1
-    var totalPages = 3
+    var totalPages = 4
     let transition = AnyTransition.asymmetric(insertion: .move(edge: .trailing), removal: .offset(x: -24))
     
     var body: some View {
-        if !viewModel.getOnboardingState() {
+        if viewModel.getOnboardingState() {
             ZStack {
                 if(currentPage == 1) {
                     OnboardingTabView(
@@ -47,6 +47,17 @@ struct OnboardingView: View {
                         image: "onboardingStats",
                         title: "onboardingTabView.title3".localized(),
                         detail: "onboardingTabView.message3".localized()
+                    )
+                    .environmentObject(viewModel)
+                    .transition(transition)
+                }
+                
+                if(currentPage == 4) {
+                    OnboardingTabView(
+                        showOnboarding: $showOnboarding,
+                        image: "onboardingFavs",
+                        title: "onboardingTabView.title4".localized(),
+                        detail: "onboardingTabView.message4".localized()
                     )
                     .environmentObject(viewModel)
                     .transition(transition)

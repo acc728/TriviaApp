@@ -53,15 +53,17 @@ struct StatsView: View {
                 } else {
                     VStack {
                         Spacer()
+                        Image("historyNotFound")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: 300)
+                        
                         Text("Couldn't find any quiz history")
                             .font(.title2)
                             .fontWeight(.light)
                             .padding(.vertical)
                         
-                        Image("question")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: 130)
+                        
                         Spacer()
                     }
                 }

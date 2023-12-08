@@ -52,9 +52,11 @@
 "onboardingTabView.title1" = "Trivia Quiz App";
 "onboardingTabView.title2" = "Play different modes!";
 "onboardingTabView.title3" = "See your stats!";
+"onboardingTabView.title4" = "Save questions!";
 "onboardingTabView.message1" = "Enjoy playing and challenging your knowledge with us!";
 "onboardingTabView.message2" = "You can play in survival mode and get the best streak possible or complete a quiz to keep learning!";
 "onboardingTabView.message3" = "Go to Stats and watch your best streak and recents results!";
+"onboardingTabView.message4" = "Store any questions to see them again whenever you want!";
 
 // MARK: - QuestionErrorMessage
 "question.formattingErrorMessage" = "Error formatting question: ";
