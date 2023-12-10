@@ -18,7 +18,7 @@ struct StreakCardView: View {
                 
                 Spacer()
                 
-                Text("Survival Mode!")
+                Text("streakCardView.title".localized())
                     .bold()
                     .font(.title2)
                     .foregroundStyle(.white)
@@ -26,7 +26,7 @@ struct StreakCardView: View {
                 Spacer()
                 
                 HStack {
-                    Text("Best streak: ")
+                    Text("streakCardView.message".localized())
                         .font(.title3)
                         .foregroundStyle(.white)
                         .fontWeight(.semibold)

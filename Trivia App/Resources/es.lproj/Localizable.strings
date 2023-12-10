@@ -15,13 +15,13 @@
 "contentView.favsTab" = "Favoritos";
 "contentView.statsTab" = "Estadísticas";
 
-// MARK: - QuestionView
-"questionView.title" = "Quiz Trivia App";
-"questionDetailView.title" = "Quiz Trivia";
+// MARK: - SurvivalModeView
+"survivalModeView.title" = "Quiz Trivia App";
+"survivalModeView.message" = "¡Vaya, has perdido la racha, sigue intentándolo!";
 
-// MARK: - QuestiondDetailView
-"questionDetailView.message" = "¡Vaya, has perdido la racha, sigue intentándolo!";
-"questionDetailView.close" = "Salir";
+// MARK: - SurvivalModeDetailView
+"survivalModeDetailView.title" = "Quiz Trivia";
+"survivalModeDetail.close" = "Salir";
 
 // MARK: - QuizView
 "quizView.title" = "Quiz Trivia App";
@@ -32,13 +32,20 @@
 "quizDetailView.close" = "Cerrar test";
 
 // MARK: - StatsView
-"statsView.quizHistory" = "Historial de Tests";
+"statsView.quizHistory" = "Tests recientes";
+"statsView.message" = "¡Observa los resultados de los tests recientes y tu mejor racha!";
+"statsView.quizHistoryEmpty" = "No se han encontrado tests recientes";
+
+// MARK: - StreakCardView
+"streakCardView.title" = "¡Modo Survival!";
+"streakCardView.message" = "Mejor racha: ";
 
 // MARK: - FavoritesCardView
 "favoritesCardView.difficulty" = "Dificultad: ";
 
 // MARK: - FavoritesView
 "favoritesView.favoritesQuestionsEmpty" = "No se han encontrado preguntas favoritas";
+"favoritesView.message" = "¡Revisa tus preguntas favoritas y repítelas!";
 
 // MARK: - FavoritesDetailCardView
 "favoritesDetailCardView.question" = "Pregunta: ";
@@ -61,6 +68,10 @@
 // MARK: - QuestionErrorMessage
 "question.formattingErrorMessage" = "Error formateando la pregunta: ";
 "question.answersErrorMessage" = "Error formateando las respuestas: ";
+
+//MARK: - CustomDialog
+"customDialog.title" = "¿Salir de la partida?";
+"customDialog.message" = "Se perderá todo el progreso. ¿Seguro que quieres salir?";
 
 //MARK: - MainButton
 "mainButton.returnMenu" = "Volver al menu";

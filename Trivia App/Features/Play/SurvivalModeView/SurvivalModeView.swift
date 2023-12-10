@@ -23,7 +23,7 @@ struct SurvivalModeView: View {
                 }.padding(.bottom, 300)
                 
                 VStack(spacing: 20) {
-                    Text("questionView.title".localized())
+                    Text("survivalModeView.title".localized())
                         .font(.title)
                         .bold()
                         .padding(.top, 20)
@@ -38,7 +38,7 @@ struct SurvivalModeView: View {
                     Spacer()
                     
                     VStack {
-                        Text("questionDetailView.message".localized())
+                        Text("survivalModeView.message".localized())
                         
                         HStack {
                             Text("You got a streak of \(viewModel.streak)")

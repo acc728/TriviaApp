@@ -15,13 +15,13 @@
 "contentView.favsTab" = "Favs";
 "contentView.statsTab" = "Stats";
 
-// MARK: - QuestionView
-"questionView.title" = "Quiz Trivia App";
-"questionDetailView.title" = "Quiz Trivia";
+// MARK: - SurvivalModeView
+"survivalModeView.title" = "Quiz Trivia App";
+"survivalModeView.message" = "Oops you lost your streak. Keep trying!";
 
-// MARK: - QuestionDetailView
-"questionDetailView.message" = "Oops you lost your streak. Keep trying!";
-"questionDetailView.close" = "Exit game";
+// MARK: - SurvivalModeDetailView
+"survivalModeDetailView.close" = "Exit game";
+"survivalModeDetailView.title" = "Quiz Trivia";
 
 // MARK: - QuizView
 "quizView.title" = "Quiz Trivia App";
@@ -33,12 +33,19 @@
 
 // MARK: - StatsView
 "statsView.quizHistory" = "Quiz History";
+"statsView.message" = "See your results in recents quizzes and best streak!";
+"statsView.quizHistoryEmpty" = "Couldn't find any recent quiz";
+
+// MARK: - StreakCardView
+"streakCardView.title" = "Survival Mode!";
+"streakCardView.message" = "Best streak: ";
 
 // MARK: - FavoritesCardView
 "favoritesCardView.difficulty" = "Difficulty: ";
 
 // MARK: - FavoritesView
 "favoritesView.favoritesQuestionsEmpty" = "Couldn't find favorites questions";
+"favoritesView.message" = "See your favorites questions and repeat them to learn!";
 
 // MARK: - FavoritesDetailCardView
 "favoritesDetailCardView.question" = "Question: ";
@@ -61,6 +68,10 @@
 // MARK: - QuestionErrorMessage
 "question.formattingErrorMessage" = "Error formatting question: ";
 "question.answersErrorMessage" = "Error formatting answers: ";
+
+//MARK: - CustomDialog
+"customDialog.title" = "Exit Game?";
+"customDialog.message" = "All the progress will be lost. Do you want to leave the game?";
 
 //MARK: - MainButton
 "mainButton.returnMenu" = "Return to Menu";

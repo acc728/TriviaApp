@@ -19,7 +19,7 @@ struct StatsView: View {
         VStack {
             HeaderView(
                 title: "Quiz Trivia App",
-                message: "See your results in recents quizzes and best streak!",
+                message: "statsView.message".localized(),
                 gradient: Gradients.redGradient
             )
             
@@ -31,7 +31,7 @@ struct StatsView: View {
             
             VStack {
                 HStack {
-                    Text("Quiz History")
+                    Text("statsView.quizHistory".localized())
                         .bold()
                     .font(.title2)
                     Spacer()
@@ -58,10 +58,11 @@ struct StatsView: View {
                             .scaledToFit()
                             .frame(maxWidth: 300)
                         
-                        Text("Couldn't find any quiz history")
+                        Text("statsView.quizHistoryEmpty".localized())
                             .font(.title2)
                             .fontWeight(.light)
-                            .padding(.vertical)
+                            .multilineTextAlignment(.center)
+                            .padding()
                         
                         
                         Spacer()

@@ -13,6 +13,8 @@ struct SurvivalModeDetailView: View {
     @EnvironmentObject var coordinator: Coordinator
     @State private var showToast = false
     @State private var toastColor = Color.green
+    @State private var isActive = false
+    @State private var goBack = false
     
     private let toastOptions = SimpleToastOptions(
         alignment: .top,
@@ -23,124 +25,139 @@ struct SurvivalModeDetailView: View {
     )
     
     var body: some View {
-        VStack(spacing: 20) {
-            HStack {
-                Text("questionDetailView.title".localized())
-                    .font(.title)
-                    .fontWeight(.heavy)
-                    .foregroundStyle(
-                        LinearGradient(
-                            colors: Gradients.redGradient,
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing))
-                Spacer()
-                
-                NavigationLink() {
-                    coordinator.makeModeSelectorView()
-                } label: {
+        if(goBack) {
+            coordinator.makeModeSelectorView()
+        } else {
+            ZStack {
+                VStack(spacing: 20) {
                     HStack {
-                        Text("questionDetailView.close".localized())
-                            .foregroundStyle(.red)
-                            .bold()
-                        Image(systemName: "x.circle.fill")
-                            .foregroundColor(.red)
+                        Text("survivalModeDetailView.title".localized())
+                            .font(.title)
+                            .fontWeight(.heavy)
+                            .foregroundStyle(
+                                LinearGradient(
+                                    colors: Gradients.redGradient,
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing))
+                        Spacer()
+                        
+                        Button {
+                            withAnimation {
+                                isActive = true
+                            }
+                        } label: {
+                            HStack {
+                                Text("survivalModeDetailView.close".localized())
+                                    .foregroundStyle(.red)
+                                    .bold()
+                                Image(systemName: "x.circle.fill")
+                                    .foregroundColor(.red)
+                            }
+                        }
                     }
-                }
-            }
-            
-            HStack {
-                Button {
-                    Task {
-                        if(!viewModel.isFavorite) {
-                            await viewModel.addFavoriteQuestion()
-                            print("Question value (is favorite): " + viewModel.isFavorite.description)
-                            toastColor = .green
-                            showToast = true
-                        } else {
-                            await viewModel.removeFavoriteQuestion()
-                            print("Question value (not favorite): " + viewModel.isFavorite.description)
-                            toastColor = .red
-                            showToast = true
+                    
+                    HStack {
+                        Button {
+                            Task {
+                                if(!viewModel.isFavorite) {
+                                    await viewModel.addFavoriteQuestion()
+                                    toastColor = .green
+                                    showToast = true
+                                } else {
+                                    await viewModel.removeFavoriteQuestion()
+                                    toastColor = .red
+                                    showToast = true
+                                }
+                                
+                                
+                            }
+                        } label: {
+                            Label("Add Favs", systemImage: viewModel.isFavorite ? "star.fill" : "star")
+                                .foregroundStyle(
+                                    LinearGradient(
+                                        colors: Gradients.redGradient,
+                                        startPoint: .trailing,
+                                        endPoint: .leading)
+                                )
                         }
                         
+                        Spacer()
                         
+                        Text("You have a streak of \(viewModel.streak)")
+                            .font(.title3)
+                            .fontWeight(.light)
+                        
+                        Image(systemName: "flame.fill")
+                            .resizable()
+                            .frame(width: 25,height: 30)
+                            .foregroundStyle(
+                                LinearGradient(
+                                    gradient: Gradient(colors: Gradients.redGradient),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
                     }
-                } label: {
-                    Label("Add Favs", systemImage: viewModel.isFavorite ? "star.fill" : "star")
-                        .foregroundStyle(
-                            LinearGradient(
-                                colors: Gradients.redGradient,
-                                startPoint: .trailing,
-                                endPoint: .leading)
+                    
+                    VStack(alignment: .center, spacing: 20) {
+                        Text(viewModel.questionText)
+                            .font(.title)
+                            .bold()
+                            .lineLimit(3, reservesSpace: true)
+                        
+                        ForEach(viewModel.answerChoices) { answer in
+                            QuestionRowAnswer(answer: answer)
+                                .environmentObject(viewModel)
+                        }.transition(
+                            .asymmetric(
+                                insertion: .move(edge: .trailing),
+                                removal: .move(edge: .leading)
+                            ).combined(with: .opacity)
                         )
-                }
-                
-                Spacer()
-                
-                Text("You have a streak of \(viewModel.streak)")
-                    .font(.title3)
-                    .fontWeight(.light)
-                
-                Image(systemName: "flame.fill")
-                    .resizable()
-                    .frame(width: 25,height: 30)
-                    .foregroundStyle(
-                        LinearGradient(
-                            gradient: Gradient(colors: Gradients.redGradient),
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
+                    }
+                    .padding(.top)
+                    
+                    Button {
+                        Task {
+                            await viewModel.getQuestion()
+                        }
+                        withAnimation {
+                            viewModel.setQuestion()
+                        }
+                    } label: {
+                        MainButton(
+                            text: "mainButton.next".localized(),
+                            background: viewModel.answerSelected ? .pink: .gray
                         )
-                    )
-            }
-            
-            VStack(alignment: .center, spacing: 20) {
-                Text(viewModel.questionText)
-                    .font(.title)
-                    .bold()
-                    .lineLimit(3, reservesSpace: true)
+                    }
+                    .disabled(!viewModel.answerSelected)
+                    
+                    Spacer()
+                }
+                .padding()
+                .simpleToast(isPresented: $showToast, options: toastOptions, content: {
+                    HStack {
+                        Image(systemName: toastColor == .green ? "checkmark.circle.fill" : "x.circle.fill")
+                        Text( toastColor == .green ? "Added to favorites": "Removed from favorites")
+                    }
+                    .padding()
+                    .background(toastColor.opacity(0.8))
+                    .foregroundStyle(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 14))
+                })
+                .navigationBarBackButtonHidden(true)
+                .setBackgroundApp()
                 
-                ForEach(viewModel.answerChoices) { answer in
-                    QuestionRowAnswer(answer: answer)
-                        .environmentObject(viewModel)
-                }.transition(
-                    .asymmetric(
-                        insertion: .move(edge: .trailing),
-                        removal: .move(edge: .leading)
-                    ).combined(with: .opacity)
-                )
-            }
-            .padding(.top)
-            
-            Button {
-                Task {
-                    await viewModel.getQuestion()
+                if (isActive) {
+                    CustomDialog(isActive: $isActive,
+                                 title: "customDialog.title".localized(),
+                                 message: "customDialog.message".localized()) {
+                        goBack = true
+                    }
+                    .ignoresSafeArea()
                 }
-                withAnimation {
-                    viewModel.setQuestion()
-                }
-            } label: {
-                MainButton(
-                    text: "Next",
-                    background: viewModel.answerSelected ? .pink: .gray
-                )
             }
-            .disabled(!viewModel.answerSelected)
-            
-            Spacer()
         }
-        .padding()
-        .simpleToast(isPresented: $showToast, options: toastOptions, content: {
-            HStack {
-                Image(systemName: toastColor == .green ? "checkmark.circle.fill" : "x.circle.fill")
-                Text( toastColor == .green ? "Added to favorites": "Removed from favorites")
-            }
-            .padding()
-            .background(toastColor.opacity(0.8))
-            .foregroundStyle(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius: 14))
-        })
-        .navigationBarBackButtonHidden(true)
-        .setBackgroundApp()
     }
 }
 

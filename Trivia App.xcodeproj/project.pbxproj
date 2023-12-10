@@ -15,6 +15,7 @@
 		7A0A00EA2B0B49E300872AFF /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0A00E92B0B49E300872AFF /* LottieView.swift */; };
 		7A0E7BE92B14870F00B995CB /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0E7BE82B14870F00B995CB /* ViewExtensions.swift */; };
 		7A38DE2B2B035D9E00CB49E3 /* ModeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A38DE2A2B035D9E00CB49E3 /* ModeSelectorView.swift */; };
+		7A3C94322B25FFA60001B903 /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3C94312B25FFA60001B903 /* CustomDialog.swift */; };
 		7A40C0F72B15D3BD00B7B31B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A40C0F62B15D3BD00B7B31B /* OnboardingView.swift */; };
 		7A482A232B067FA4002C3716 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A482A222B067FA4002C3716 /* HeaderView.swift */; };
 		7A482A252B0684EE002C3716 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A482A242B0684EE002C3716 /* CircularProgressView.swift */; };
@@ -76,6 +77,7 @@
 		7A0A00E92B0B49E300872AFF /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		7A0E7BE82B14870F00B995CB /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		7A38DE2A2B035D9E00CB49E3 /* ModeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectorView.swift; sourceTree = "<group>"; };
+		7A3C94312B25FFA60001B903 /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		7A40C0F62B15D3BD00B7B31B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		7A482A222B067FA4002C3716 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		7A482A242B0684EE002C3716 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				7A482A222B067FA4002C3716 /* HeaderView.swift */,
 				7A482A242B0684EE002C3716 /* CircularProgressView.swift */,
 				7A0A00E92B0B49E300872AFF /* LottieView.swift */,
+				7A3C94312B25FFA60001B903 /* CustomDialog.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				7A0E7BE92B14870F00B995CB /* ViewExtensions.swift in Sources */,
 				7ABE2DB42B020BDC00279C51 /* Trivia_AppApp.swift in Sources */,
 				7A5BB8D72B1DBF82005C6C52 /* CoreDataPersistentController.swift in Sources */,
+				7A3C94322B25FFA60001B903 /* CustomDialog.swift in Sources */,
 				7A03EC792B03EE3F00B405F4 /* SurvivalModeView.swift in Sources */,
 				7A5BB8CF2B1DB874005C6C52 /* FavoritesLocalService.swift in Sources */,
 				7ABE2DC52B020DE100279C51 /* NetworkClientError.swift in Sources */,

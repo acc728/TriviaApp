@@ -18,7 +18,7 @@ struct FavoritesView: View {
         VStack {
             HeaderView(
                 title: "Quiz Trivia App",
-                message: "See your favorites questions and repeat them to learn!",
+                message: "favoritesView.message".localized(),
                 gradient: Gradients.redGradient
             )
             
@@ -65,7 +65,8 @@ struct FavoritesView: View {
                     Text("favoritesView.favoritesQuestionsEmpty".localized())
                         .font(.title2)
                         .fontWeight(.light)
-                        .padding(.vertical)
+                        .multilineTextAlignment(.center)
+                        .padding()
                     
                     
                     
