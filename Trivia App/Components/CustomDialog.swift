@@ -17,7 +17,7 @@ struct CustomDialog: View {
     var body: some View {
         ZStack {
             Color(.black)
-                .opacity(0.2)
+                .opacity(0.15)
                 .ignoresSafeArea()
                 .onTapGesture {
                     close()
