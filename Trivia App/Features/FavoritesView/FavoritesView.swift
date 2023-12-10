@@ -38,7 +38,12 @@ struct FavoritesView: View {
                             startPoint: .leading,
                             endPoint: .trailing)
                         )
-                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
+                        .listRowInsets(
+                            EdgeInsets(
+                                top: 0,
+                                leading: 0,
+                                bottom: 5,
+                                trailing: 0))
                         .listRowBackground(Color.clear)
                         
                     }

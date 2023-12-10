@@ -16,6 +16,7 @@ struct QuizRowAnswer: View {
         HStack(spacing: 20) {
             Text(answer.text)
                 .bold()
+                .lineLimit(nil)
             
             if isSelected {
                 Spacer()

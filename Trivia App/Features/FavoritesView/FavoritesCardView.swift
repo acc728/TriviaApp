@@ -24,7 +24,6 @@ struct FavoritesCardView: View {
                 Spacer()
                 
                 Text(question.formattedQuestion)
-                    .font(.headline)
                     .fontWeight(.heavy)
                     .foregroundStyle(.white)
                     .lineLimit(3)
@@ -35,7 +34,6 @@ struct FavoritesCardView: View {
                 HStack {
                     Spacer()
                     Text("favoritesCardView.difficulty".localized() + question.difficulty)
-                        .font(.headline)
                         .foregroundStyle(.white)
                         .fontWeight(.semibold)
                         .padding(.horizontal, 20)

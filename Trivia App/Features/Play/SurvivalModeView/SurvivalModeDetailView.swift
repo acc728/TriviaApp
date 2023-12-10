@@ -95,11 +95,11 @@ struct SurvivalModeDetailView: View {
                         )
                 }
                 
-                VStack(alignment: .center, spacing: 20) {
+                VStack(alignment: .center, spacing: 15) {
                     Text(viewModel.questionText)
-                        .font(.title)
+                        .font(.title2)
                         .bold()
-                        .lineLimit(3, reservesSpace: true)
+                        .lineLimit(nil)
                     
                     ForEach(viewModel.answerChoices) { answer in
                         QuestionRowAnswer(answer: answer)

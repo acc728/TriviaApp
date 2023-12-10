@@ -92,11 +92,11 @@ struct QuizDetailView: View {
                 }
                 .padding(.bottom, 10)
                 
-                VStack(alignment: .center, spacing: 20) {
+                VStack(alignment: .center, spacing: 15) {
                     Text(viewModel.question)
-                        .font(.title)
+                        .font(.title2)
                         .bold()
-                        .lineLimit(5, reservesSpace: false)
+                        .lineLimit(nil)
                     
                     ForEach(viewModel.answerChoices) { answer in
                         QuizRowAnswer(answer: answer)

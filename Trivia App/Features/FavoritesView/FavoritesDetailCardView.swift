@@ -21,7 +21,6 @@ struct FavoritesDetailCardView: View {
                             .multilineTextAlignment(.leading)
                         
                         Text(question.formattedQuestion)
-                            .font(.title3)
                             .fontWeight(.regular)
                             .foregroundStyle(.white)
                             .multilineTextAlignment(.leading)
@@ -35,7 +34,6 @@ struct FavoritesDetailCardView: View {
                             .multilineTextAlignment(.leading)
                         
                         Text(question.category)
-                            .font(.title3)
                             .fontWeight(.regular)
                             .foregroundStyle(.white)
                             .multilineTextAlignment(.leading)
