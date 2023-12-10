@@ -12,7 +12,7 @@ struct CustomDialog: View {
     
     let title: String
     let message: String
-    let action: () -> ()
+    let view: AnyView
     
     var body: some View {
         ZStack {
@@ -52,9 +52,8 @@ struct CustomDialog: View {
                         .padding()
                     }
                     
-                    Button {
-                        action()
-                        close()
+                    NavigationLink {
+                        view
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 20)
@@ -91,6 +90,11 @@ struct CustomDialog: View {
 }
 
 #Preview {
-    CustomDialog(isActive: .constant(true), title: "Exit game?", message: "All the progress will be lost. Do you want to leave the game?", action: {})
+    CustomDialog(
+        isActive: .constant(true),
+        title: "Exit game?",
+        message: "All the progress will be lost. Do you want to leave the game?",
+        view: AnyView(Coordinator().makeModeSelectorView())
+    )
 }
 

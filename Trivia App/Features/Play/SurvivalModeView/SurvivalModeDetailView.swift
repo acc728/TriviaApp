@@ -14,7 +14,6 @@ struct SurvivalModeDetailView: View {
     @State private var showToast = false
     @State private var toastColor = Color.green
     @State private var isActive = false
-    @State private var goBack = false
     
     private let toastOptions = SimpleToastOptions(
         alignment: .top,
@@ -25,137 +24,131 @@ struct SurvivalModeDetailView: View {
     )
     
     var body: some View {
-        if(goBack) {
-            coordinator.makeModeSelectorView()
-        } else {
-            ZStack {
-                VStack(spacing: 20) {
-                    HStack {
-                        Text("survivalModeDetailView.title".localized())
-                            .font(.title)
-                            .fontWeight(.heavy)
+        ZStack {
+            VStack(spacing: 20) {
+                HStack {
+                    Text("survivalModeDetailView.title".localized())
+                        .font(.title)
+                        .fontWeight(.heavy)
+                        .foregroundStyle(
+                            LinearGradient(
+                                colors: Gradients.redGradient,
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing))
+                    Spacer()
+                    
+                    Button {
+                        withAnimation {
+                            isActive = true
+                        }
+                    } label: {
+                        HStack {
+                            Text("survivalModeDetailView.close".localized())
+                                .foregroundStyle(.red)
+                                .bold()
+                            Image(systemName: "x.circle.fill")
+                                .foregroundColor(.red)
+                        }
+                    }
+                }
+                
+                HStack {
+                    Button {
+                        Task {
+                            if(!viewModel.isFavorite) {
+                                await viewModel.addFavoriteQuestion()
+                                toastColor = .green
+                                showToast = true
+                            } else {
+                                await viewModel.removeFavoriteQuestion()
+                                toastColor = .red
+                                showToast = true
+                            }
+                            
+                            
+                        }
+                    } label: {
+                        Label("Add Favs", systemImage: viewModel.isFavorite ? "star.fill" : "star")
                             .foregroundStyle(
                                 LinearGradient(
                                     colors: Gradients.redGradient,
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing))
-                        Spacer()
-                        
-                        Button {
-                            withAnimation {
-                                isActive = true
-                            }
-                        } label: {
-                            HStack {
-                                Text("survivalModeDetailView.close".localized())
-                                    .foregroundStyle(.red)
-                                    .bold()
-                                Image(systemName: "x.circle.fill")
-                                    .foregroundColor(.red)
-                            }
-                        }
-                    }
-                    
-                    HStack {
-                        Button {
-                            Task {
-                                if(!viewModel.isFavorite) {
-                                    await viewModel.addFavoriteQuestion()
-                                    toastColor = .green
-                                    showToast = true
-                                } else {
-                                    await viewModel.removeFavoriteQuestion()
-                                    toastColor = .red
-                                    showToast = true
-                                }
-                                
-                                
-                            }
-                        } label: {
-                            Label("Add Favs", systemImage: viewModel.isFavorite ? "star.fill" : "star")
-                                .foregroundStyle(
-                                    LinearGradient(
-                                        colors: Gradients.redGradient,
-                                        startPoint: .trailing,
-                                        endPoint: .leading)
-                                )
-                        }
-                        
-                        Spacer()
-                        
-                        Text("You have a streak of \(viewModel.streak)")
-                            .font(.title3)
-                            .fontWeight(.light)
-                        
-                        Image(systemName: "flame.fill")
-                            .resizable()
-                            .frame(width: 25,height: 30)
-                            .foregroundStyle(
-                                LinearGradient(
-                                    gradient: Gradient(colors: Gradients.redGradient),
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
+                                    startPoint: .trailing,
+                                    endPoint: .leading)
                             )
                     }
                     
-                    VStack(alignment: .center, spacing: 20) {
-                        Text(viewModel.questionText)
-                            .font(.title)
-                            .bold()
-                            .lineLimit(3, reservesSpace: true)
-                        
-                        ForEach(viewModel.answerChoices) { answer in
-                            QuestionRowAnswer(answer: answer)
-                                .environmentObject(viewModel)
-                        }.transition(
-                            .asymmetric(
-                                insertion: .move(edge: .trailing),
-                                removal: .move(edge: .leading)
-                            ).combined(with: .opacity)
-                        )
-                    }
-                    .padding(.top)
-                    
-                    Button {
-                        Task {
-                            await viewModel.getQuestion()
-                        }
-                        withAnimation {
-                            viewModel.setQuestion()
-                        }
-                    } label: {
-                        MainButton(
-                            text: "mainButton.next".localized(),
-                            background: viewModel.answerSelected ? .pink: .gray
-                        )
-                    }
-                    .disabled(!viewModel.answerSelected)
-                    
                     Spacer()
+                    
+                    Text("You have a streak of \(viewModel.streak)")
+                        .font(.title3)
+                        .fontWeight(.light)
+                    
+                    Image(systemName: "flame.fill")
+                        .resizable()
+                        .frame(width: 25,height: 30)
+                        .foregroundStyle(
+                            LinearGradient(
+                                gradient: Gradient(colors: Gradients.redGradient),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                }
+                
+                VStack(alignment: .center, spacing: 20) {
+                    Text(viewModel.questionText)
+                        .font(.title)
+                        .bold()
+                        .lineLimit(3, reservesSpace: true)
+                    
+                    ForEach(viewModel.answerChoices) { answer in
+                        QuestionRowAnswer(answer: answer)
+                            .environmentObject(viewModel)
+                    }.transition(
+                        .asymmetric(
+                            insertion: .move(edge: .trailing),
+                            removal: .move(edge: .leading)
+                        ).combined(with: .opacity)
+                    )
+                }
+                .padding(.top)
+                
+                Button {
+                    Task {
+                        await viewModel.getQuestion()
+                    }
+                    withAnimation {
+                        viewModel.setQuestion()
+                    }
+                } label: {
+                    MainButton(
+                        text: "mainButton.next".localized(),
+                        background: viewModel.answerSelected ? .pink: .gray
+                    )
+                }
+                .disabled(!viewModel.answerSelected)
+                
+                Spacer()
+            }
+            .padding()
+            .simpleToast(isPresented: $showToast, options: toastOptions, content: {
+                HStack {
+                    Image(systemName: toastColor == .green ? "checkmark.circle.fill" : "x.circle.fill")
+                    Text( toastColor == .green ? "Added to favorites": "Removed from favorites")
                 }
                 .padding()
-                .simpleToast(isPresented: $showToast, options: toastOptions, content: {
-                    HStack {
-                        Image(systemName: toastColor == .green ? "checkmark.circle.fill" : "x.circle.fill")
-                        Text( toastColor == .green ? "Added to favorites": "Removed from favorites")
-                    }
-                    .padding()
-                    .background(toastColor.opacity(0.8))
-                    .foregroundStyle(Color.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 14))
-                })
-                .navigationBarBackButtonHidden(true)
-                .setBackgroundApp()
-                
-                if (isActive) {
-                    CustomDialog(isActive: $isActive,
-                                 title: "customDialog.title".localized(),
-                                 message: "customDialog.message".localized()) {
-                        goBack = true
-                    }
-                    .ignoresSafeArea()
-                }
+                .background(toastColor.opacity(0.8))
+                .foregroundStyle(Color.white)
+                .clipShape(RoundedRectangle(cornerRadius: 14))
+            })
+            .navigationBarBackButtonHidden(true)
+            .setBackgroundApp()
+            
+            if (isActive) {
+                CustomDialog(isActive: $isActive,
+                             title: "customDialog.title".localized(),
+                             message: "customDialog.message".localized(),
+                             view: AnyView(coordinator.makeModeSelectorView()))
             }
         }
     }
