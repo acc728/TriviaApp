@@ -17,7 +17,7 @@ struct OnboardingView: View {
     let transition = AnyTransition.asymmetric(insertion: .move(edge: .trailing), removal: .offset(x: -24))
     
     var body: some View {
-        if viewModel.getOnboardingState() {
+        if !viewModel.getOnboardingState() {
             ZStack {
                 if(currentPage == 1) {
                     OnboardingTabView(
